@@ -19,7 +19,7 @@ export const LATEX_CATEGORIES = [
   'Accents'
 ];
 
-export const LATEX_SYMBOLS: LaTeXSymbol[] = [
+export const LATEX_SYMBOLS = [
   // FUNCTIONS
   { label: 'Fraction', latex: '\\frac{a}{b}', category: 'Functions', tooltip: 'Fraction: \\frac{num}{den}' },
   { label: 'Sqrt', latex: '\\sqrt{x}', category: 'Functions', tooltip: 'Square Root: \\sqrt{x}' },
@@ -219,5 +219,44 @@ export const LATEX_SYMBOLS: LaTeXSymbol[] = [
   { label: 'italic', latex: '\\mathit{x}', category: 'Fonts', tooltip: 'Italic Font: \\mathit{x}' },
   { label: 'roman', latex: '\\mathrm{x}', category: 'Fonts', tooltip: 'Roman Font: \\mathrm{x}' },
   { label: 'sans', latex: '\\mathsf{x}', category: 'Fonts', tooltip: 'Sans-Serif Font: \\mathsf{x}' },
-  { label: 'mono', latex: '\\mathtt{x}', category: 'Fonts', tooltip: 'Monospace Font: \\mathtt{x}' }
-];
+  { label: 'mono', latex: '\\mathtt{x}', category: 'Fonts', tooltip: 'Monospace Font: \\mathtt{x}' },
+
+  // GREEK
+  { label: 'α', latex: '\\alpha', category: 'Greek', tooltip: 'alpha' },
+  { label: 'β', latex: '\\beta', category: 'Greek', tooltip: 'beta' },
+  { label: 'γ', latex: '\\gamma', category: 'Greek', tooltip: 'gamma' },
+  { label: 'δ', latex: '\\delta', category: 'Greek', tooltip: 'delta' },
+  { label: 'ε', latex: '\\epsilon', category: 'Greek', tooltip: 'epsilon' },
+  { label: 'ζ', latex: '\\zeta', category: 'Greek', tooltip: 'zeta' },
+  { label: 'η', latex: '\\eta', category: 'Greek', tooltip: 'eta' },
+  { label: 'θ', latex: '\\theta', category: 'Greek', tooltip: 'theta' },
+  { label: 'ι', latex: '\\iota', category: 'Greek', tooltip: 'iota' },
+  { label: 'κ', latex: '\\kappa', category: 'Greek', tooltip: 'kappa' },
+  { label: 'λ', latex: '\\lambda', category: 'Greek', tooltip: 'lambda' },
+  { label: 'μ', latex: '\\mu', category: 'Greek', tooltip: 'mu' },
+  { label: 'ν', latex: '\\nu', category: 'Greek', tooltip: 'nu' },
+  { label: 'ξ', latex: '\\xi', category: 'Greek', tooltip: 'xi' },
+  { label: 'π', latex: '\\pi', category: 'Greek', tooltip: 'pi' },
+  { label: 'ρ', latex: '\\rho', category: 'Greek', tooltip: 'rho' },
+  { label: 'σ', latex: '\\sigma', category: 'Greek', tooltip: 'sigma' },
+  { label: 'τ', latex: '\\tau', category: 'Greek', tooltip: 'tau' },
+  { label: 'υ', latex: '\\upsilon', category: 'Greek', tooltip: 'upsilon' },
+  { label: 'φ', latex: '\\phi', category: 'Greek', tooltip: 'phi' },
+  { label: 'χ', latex: '\\chi', category: 'Greek', tooltip: 'chi' },
+  { label: 'ψ', latex: '\\psi', category: 'Greek', tooltip: 'psi' },
+  { label: 'ω', latex: '\\omega', category: 'Greek', tooltip: 'omega' },
+  { label: 'ε', latex: '\\varepsilon', category: 'Greek', tooltip: 'varepsilon' },
+  { label: 'ϑ', latex: '\\vartheta', category: 'Greek', tooltip: 'vartheta' },
+  { label: 'ϕ', latex: '\\varphi', category: 'Greek', tooltip: 'varphi' },
+  { label: 'Γ', latex: '\\Gamma', category: 'Greek', tooltip: 'Gamma' },
+  { label: 'Δ', latex: '\\Delta', category: 'Greek', tooltip: 'Delta' },
+  { label: 'Θ', latex: '\\Theta', category: 'Greek', tooltip: 'Theta' },
+  { label: 'Λ', latex: '\\Lambda', category: 'Greek', tooltip: 'Lambda' },
+  { label: 'Ξ', latex: '\\Xi', category: 'Greek', tooltip: 'Xi' },
+  { label: 'Π', latex: '\\Pi', category: 'Greek', tooltip: 'Pi' },
+  { label: 'Σ', latex: '\\Sigma', category: 'Greek', tooltip: 'Sigma' },
+  { label: 'Υ', latex: '\\Upsilon', category: 'Greek', tooltip: 'Upsilon' },
+  { label: 'Φ', latex: '\\Phi', category: 'Greek', tooltip: 'Phi' },
+  { label: 'Ψ', latex: '\\Psi', category: 'Greek', tooltip: 'Psi' },
+  { label: 'Ω', latex: '\\Omega', category: 'Greek', tooltip: 'Omega' }
+] as const satisfies LaTeXSymbol[];
