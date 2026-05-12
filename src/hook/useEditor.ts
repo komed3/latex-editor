@@ -164,4 +164,12 @@ export const useEditor = () => {
   const resetView = useCallback( () => {
     setZoom( 1 ), setPan( { x: 0, y: 0 } )
   }, [] );
+
+  return {
+    latex, setLatex, activeTab, setActiveTab, searchQuery,
+    setSearchQuery, zoom, setZoom, pan, setPan, isPanning,
+    isExporting, previewRef, insertLatex, handleShare,
+    handleExportImage, handleExportPDF, handleWheel,
+    handleMouseDown, editorRef, resetView
+  };
 };
