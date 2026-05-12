@@ -140,6 +140,22 @@ export const Ribbon: React.FC< RibbonProps > = ( {
           />
         </div>
       </div>
+
+      {/** Symbols */}
+      <div className="flex flex-wrap content-start gap-2 h-37.5 p-4 bg-[#f3f2f1] border-b border-[#e1dfdd] overflow-y-auto no-scrollbar">
+        { filteredSymbols.map( ( s, idx ) => (
+          <SymbolButton key={ idx } symbol={ s } onClick={ () => insertLatex( s.latex ) } onMove={ handleMouseMove } onLeave={ hideTooltip } />
+        ) ) }
+        { filteredSymbols.length === 0 && (
+          <div className="w-full flex flex-col justify-center items-center gap-2 py-8 text-[#605e5c]">
+            <Search size={ 24 } className="opacity-20" />
+            <span className="text-xs italic">No symbols found for <q>{ searchQuery }</q></span>
+            <button onClick={ () => setSearchQuery( '' ) } className="font-semibold text-xs text-[#2b579a] hover:underline cursor-pointer">
+              Clear Search
+            </button>
+          </div>
+        ) }
+      </div>
     </header>
   );
 };
