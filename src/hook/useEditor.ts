@@ -14,4 +14,23 @@ export const useEditor = () => {
   
   const previewRef = useRef< HTMLDivElement >( null );
   const editorRef = useRef< HTMLTextAreaElement >( null );
+
+  // Load from URL Hash
+  useEffect( () => {
+    const hash = window.location.hash.slice( 1 );
+    if ( ! hash ) return;
+
+    try {
+      const decoded = LZString.decompressFromEncodedURIComponent( hash );
+      if ( decoded ) setLatex( decoded );
+    } catch ( e ) {
+      console.error( 'Failed to decode formula', e );
+    }
+  }, [] );
+
+  // Save to URL Hash
+  useEffect( () => {
+    const compressed = LZString.compressToEncodedURIComponent( latex );
+    window.history.replaceState( null, '', `#${ compressed }` );
+  }, [ latex ] );
 };
