@@ -20,9 +20,11 @@ export const Ribbon: React.FC< RibbonProps > = ( {
 } ) => {
   const filteredSymbols = LATEX_SYMBOLS.filter( s => {
     const query = searchQuery.toLowerCase();
-    const matchesSearch = s.label.toLowerCase().includes( query ) || s.latex.toLowerCase().includes( query );
 
-    return searchQuery ? matchesSearch : s.category === activeTab;
+    return searchQuery
+      ? s.label.toLowerCase().includes( query ) ||
+        s.latex.toLowerCase().includes( query )
+      : s.category === activeTab;
   } );
 
   return (
@@ -39,7 +41,9 @@ export const Ribbon: React.FC< RibbonProps > = ( {
               absolute left-3 z-10 text-white/60 group-focus-within:text-[#323130]
               group-hover:text-[#323130] transition-colors
             " />
-            <input type="text" placeholder="Search symbols …" className="
+            <input type="text" placeholder="Search symbols …" value={ searchQuery } onChange={
+              ( e ) => setSearchQuery( e.target.value )
+            } className="
               w-full h-full py-0 pl-9 pr-3 text-xs text-white focus:text-[#323130] bg-white/10
               hover:bg-white focus:bg-white placeholder:text-white/50 hover:placeholder:text-[#323130]/40
               rounded border border-transparent focus:border-white outline-none transition-all
@@ -55,9 +59,11 @@ export const Ribbon: React.FC< RibbonProps > = ( {
       <div className="flex items-end h-9 px-2 bg-white border-b border-[#e1dfdd]">
         <div className="flex items-end gap-1 h-full">
           { LATEX_CATEGORIES.map( cat => (
-            <button key={ cat } className={
+            <button key={ cat } onClick={
+              () => { setActiveTab( cat ), setSearchQuery( '' ) }
+            } className={
               `flex items-center shrink-0 h-[85%] px-4 text-xs font-medium rounded-t border-t border-x transition-colors cursor-pointer ${
-                false
+                activeTab === cat && ! searchQuery
                   ? "text-[#2b579a] bg-[#f3f2f1] border-[#e1dfdd] shadow-[0_1px_0_#f3f2f1]"
                   : "text-[#323130] bg-transparent hover:bg-[#f3f2f1] border-transparent"
               }`
