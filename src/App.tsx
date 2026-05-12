@@ -1,3 +1,4 @@
+import { Footer } from './component/Footer';
 import { Ribbon } from './component/Ribbon';
 import { TooltipProvider } from './component/Tooltip';
 import { useEditor } from './hook/useEditor';
@@ -14,6 +15,7 @@ export default function App () {
         onExportPDF={ E.handleExportPDF }
         onShare={ E.handleShare }
       />
+      <Footer length={ E.latex.length } isExporting={ E.isExporting } />
     </TooltipProvider>
   );
 }
