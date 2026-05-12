@@ -258,5 +258,19 @@ export const LATEX_SYMBOLS = [
   { label: 'Υ', latex: '\\Upsilon', category: 'Greek', tooltip: 'Upsilon' },
   { label: 'Φ', latex: '\\Phi', category: 'Greek', tooltip: 'Phi' },
   { label: 'Ψ', latex: '\\Psi', category: 'Greek', tooltip: 'Psi' },
-  { label: 'Ω', latex: '\\Omega', category: 'Greek', tooltip: 'Omega' }
+  { label: 'Ω', latex: '\\Omega', category: 'Greek', tooltip: 'Omega' },
+
+  // MATRICES
+  { label: 'matrix', latex: '\\begin{matrix} a & b \\\\ c & d \\end{matrix}', category: 'Matrices', tooltip: 'Basic Matrix (No Brackets)' },
+  { label: 'pmatrix', latex: '\\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}', category: 'Matrices', tooltip: 'Parentheses Matrix' },
+  { label: 'bmatrix', latex: '\\begin{bmatrix} a & b \\\\ c & d \\end{bmatrix}', category: 'Matrices', tooltip: 'Bracket Matrix' },
+  { label: 'vmatrix', latex: '\\begin{vmatrix} a & b \\\\ c & d \\end{vmatrix}', category: 'Matrices', tooltip: 'Determinant Matrix' },
+  { label: 'Vmatrix', latex: '\\begin{Vmatrix} a & b \\\\ c & d \\end{Vmatrix}', category: 'Matrices', tooltip: 'Norm Matrix' },
+  { label: 'small', latex: '\\begin{smallmatrix} a & b \\\\ c & d \\end{smallmatrix}', category: 'Matrices', tooltip: 'Small Matrix (Inline)' },
+
+  // ENVIRONMENTS
+  { label: 'cases', latex: '\\begin{cases} x & x > 0 \\\\ -x & x \\le 0 \\end{cases}', category: 'Environments', tooltip: 'Cases / Piecewise function' },
+  { label: 'aligned', latex: '\\begin{aligned} a &= b \\\\ c &= d \\end{aligned}', category: 'Environments', tooltip: 'Aligned Equations' },
+  { label: 'array', latex: '\\begin{array}{cc} a & b \\\\ c & d \\end{array}', category: 'Environments', tooltip: 'Manual Array' },
+  { label: 'gather', latex: '\\begin{gathered} a = b \\\\ c = d \\end{gathered}', category: 'Environments', tooltip: 'Gathered Equations' }
 ] as const satisfies LaTeXSymbol[];
