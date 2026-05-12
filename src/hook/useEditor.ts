@@ -4,7 +4,7 @@ import LZString from 'lz-string';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 
 export const useEditor = () => {
-  const [ latex, setLatex ] = useState( '\\frac{\\sqrt{2}}{\\pi}' );
+  const [ latex, setLatex ] = useState( 'x_{1,2} = \\frac{-b \\pm \\sqrt{b^2-4ac}}{2a}' );
   const [ activeTab, setActiveTab ] = useState( 'Functions' );
   const [ searchQuery, setSearchQuery ] = useState( '' );
   const [ zoom, setZoom ] = useState( 1 );
