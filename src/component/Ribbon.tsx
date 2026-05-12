@@ -1,5 +1,5 @@
 import katex from 'katex';
-import { Search, Sigma } from 'lucide-react';
+import { FileText, ImageIcon, Search, Share2, Sigma, Trash2 } from 'lucide-react';
 import type React from 'react';
 import { LATEX_CATEGORIES, LATEX_SYMBOLS, type LaTeXSymbol } from '../def/latex';
 
@@ -20,25 +20,21 @@ interface AButtonProps {
   icon: React.ReactNode;
   label: string;
   colorClass: string;
-  onLeave: () => void;
-  onMove: ( e: React.MouseEvent, label: string ) => void;
 }
 
 interface SButtonProps {
   symbol: LaTeXSymbol;
   onClick: () => void;
-  onLeave: () => void;
-  onMove: ( e: React.MouseEvent, symbol: any ) => void;
 }
 
-const ActionButton: React.FC< AButtonProps > = ( { onClick, icon, label, colorClass, onLeave, onMove } ) => (
-  <button onClick={ onClick } onMouseLeave={ onLeave } onMouseMove={ ( e ) => onMove( e, label ) } className={
+const ActionButton: React.FC< AButtonProps > = ( { onClick, icon, label, colorClass } ) => (
+  <button onClick={ onClick } onMouseLeave={ () => undefined } onMouseMove={ () => undefined } className={
     `p-1.5 rounded hover:bg-[#edebe9] active:bg-[#e1dfdd] ${ colorClass } transition-colors cursor-pointer`
   }>{ icon }</button>
 );
 
-const SymbolButton: React.FC< SButtonProps > = ( { symbol, onClick, onLeave, onMove } ) => (
-  <button onClick={ onClick } onMouseLeave={ onLeave } onMouseMove={ ( e ) => onMove( e, symbol ) } className="
+const SymbolButton: React.FC< SButtonProps > = ( { symbol, onClick } ) => (
+  <button onClick={ onClick } onMouseLeave={ () => undefined } onMouseMove={ () => undefined } className="
     group flex flex-col justify-start items-center min-w-19 h-21.5 pt-1 pb-1 bg-white/50
     hover:bg-white active:bg-[#edebe9] rounded-sm border border-transparent hover:border-[#c8c6c4]
     transition-all cursor-pointer
@@ -115,7 +111,11 @@ export const Ribbon: React.FC< RibbonProps > = ( {
         </div>
         <div className="flex-1" />
         <div className="flex gap-1 py-1 pr-1">
-          //
+          <ActionButton onClick={ onClear } icon={ <Trash2 size={ 16 } />} label="Clear All Data" colorClass="text-[#d13438]" />
+          <div className="w-px mx-1 my-1 bg-[#e1dfdd]" />
+          <ActionButton onClick={ onShare } icon={ <Share2 size={ 16 } /> } label="Share Link" colorClass="text-[#2b579a]" />
+          <ActionButton onClick={ onExportPNG } icon={ <ImageIcon size={ 16 } /> } label="Export as PNG" colorClass="text-[#107c10]" />
+          <ActionButton onClick={ onExportPDF } icon={ <FileText size={ 16 } /> } label="Export as PDF" colorClass="text-[#a4262c]" />
         </div>
       </div>
     </header>
