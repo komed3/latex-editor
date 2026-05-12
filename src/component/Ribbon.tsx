@@ -1,6 +1,7 @@
+import katex from 'katex';
 import { Search, Sigma } from 'lucide-react';
 import type React from 'react';
-import { LATEX_CATEGORIES, LATEX_SYMBOLS } from '../def/latex';
+import { LATEX_CATEGORIES, LATEX_SYMBOLS, type LaTeXSymbol } from '../def/latex';
 
 interface RibbonProps {
   activeTab: string;
@@ -13,6 +14,48 @@ interface RibbonProps {
   searchQuery: string;
   setSearchQuery: ( query: string ) => void;
 }
+
+interface AButtonProps {
+  onClick: () => void;
+  icon: React.ReactNode;
+  label: string;
+  colorClass: string;
+  onLeave: () => void;
+  onMove: ( e: React.MouseEvent, label: string ) => void;
+}
+
+interface SButtonProps {
+  symbol: LaTeXSymbol;
+  onClick: () => void;
+  onLeave: () => void;
+  onMove: ( e: React.MouseEvent, symbol: any ) => void;
+}
+
+const ActionButton: React.FC< AButtonProps > = ( { onClick, icon, label, colorClass, onLeave, onMove } ) => (
+  <button onClick={ onClick } onMouseLeave={ onLeave } onMouseMove={ ( e ) => onMove( e, label ) } className={
+    `p-1.5 rounded hover:bg-[#edebe9] active:bg-[#e1dfdd] ${ colorClass } transition-colors cursor-pointer`
+  }>{ icon }</button>
+);
+
+const SymbolButton: React.FC< SButtonProps > = ( { symbol, onClick, onLeave, onMove } ) => (
+  <button onClick={ onClick } onMouseLeave={ onLeave } onMouseMove={ ( e ) => onMove( e, symbol ) } className="
+    group flex flex-col justify-start items-center min-w-19 h-21.5 pt-1 pb-1 bg-white/50
+    hover:bg-white active:bg-[#edebe9] rounded-sm border border-transparent hover:border-[#c8c6c4]
+    transition-all cursor-pointer
+  ">
+    <div className="pointer-events-none flex-1 flex justify-center items-center w-full max-h-14 px-1 text-[#323130] overflow-hidden">
+      <div className={
+        `flex justify-center items-center transform scale-[${ symbol.scale }] origin-center`
+      } dangerouslySetInnerHTML={ {
+        __html: katex.renderToString( symbol.latex, { throwOnError: false } )
+      } } />
+    </div>
+    <span className="
+      flex justify-center items-center w-full h-4 px-1 font-medium text-center truncate text-[9px]
+      text-[#605e5c] opacity-60 group-hover:opacity-100 transition-opacity
+    ">{ symbol.label }</span>
+  </button>
+);
 
 export const Ribbon: React.FC< RibbonProps > = ( {
   activeTab, setActiveTab, insertLatex, onClear, onShare, onExportPNG,
