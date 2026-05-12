@@ -11,7 +11,7 @@ export const useEditor = () => {
   const [ pan, setPan ] = useState( { x: 0, y: 0 } );
   const [ isPanning, setIsPanning ] = useState( false );
   const [ isExporting, setIsExporting ] = useState( false );
-  
+
   const previewRef = useRef< HTMLDivElement >( null );
   const editorRef = useRef< HTMLTextAreaElement >( null );
 
@@ -102,5 +102,49 @@ export const useEditor = () => {
     } finally {
       setIsExporting( false );
     }
+  }, [] );
+
+  // Manipulate preview canvas
+  const handleWheel = useCallback( ( e: React.WheelEvent ) => {
+    const delta = e.deltaY > 0 ? 0.9 : 1.1;
+    setZoom( prev => Math.min( Math.max( prev * delta, 0.1 ), 5 ) );
+    e.preventDefault();
+  }, [] );
+
+  const handleMouseDown = useCallback( ( e: React.MouseEvent ) => {
+    if ( e.button === 0 || e.button === 1 ) {
+      setIsPanning( true );
+      e.preventDefault();
+    }
+  }, [] );
+
+  const handleMouseMove = useCallback( ( e: MouseEvent ) => {
+    if ( ! isPanning ) return;
+    setPan( prev => ( {
+      x: prev.x + e.movementX,
+      y: prev.y + e.movementY
+    } ) );
+  }, [ isPanning ] );
+
+  const handleMouseUp = useCallback( () => {
+    setIsPanning( false );
+  }, [] );
+
+  useEffect( () => {
+    if ( isPanning ) {
+      window.addEventListener( 'mousemove', handleMouseMove );
+      window.addEventListener( 'mouseup', handleMouseUp );
+    } else {
+      window.removeEventListener( 'mousemove', handleMouseMove );
+      window.removeEventListener( 'mouseup', handleMouseUp );
+    }
+    return () => {
+      window.removeEventListener( 'mousemove', handleMouseMove );
+      window.removeEventListener( 'mouseup', handleMouseUp );
+    };
+  }, [ isPanning, handleMouseMove, handleMouseUp ] );
+
+  const resetView = useCallback( () => {
+    setZoom( 1 ), setPan( { x: 0, y: 0 } )
   }, [] );
 };
