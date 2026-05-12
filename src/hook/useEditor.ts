@@ -13,7 +13,6 @@ export const useEditor = () => {
   const [ isExporting, setIsExporting ] = useState( false );
 
   const previewRef = useRef< HTMLDivElement >( null );
-  const editorRef = useRef< HTMLTextAreaElement >( null );
 
   // Load from URL Hash
   useEffect( () => {
@@ -170,6 +169,6 @@ export const useEditor = () => {
     setSearchQuery, zoom, setZoom, pan, setPan, isPanning,
     isExporting, previewRef, insertLatex, handleShare,
     handleExportImage, handleExportPDF, handleWheel,
-    handleMouseDown, editorRef, resetView
+    handleMouseDown, resetView
   };
 };
