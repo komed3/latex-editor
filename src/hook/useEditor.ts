@@ -44,6 +44,23 @@ export const useEditor = () => {
     }
   }, []);
 
+  // Insert LaTeX
+  const insertLatex = useCallback( ( symbol: string ) => {
+    const textarea = document.getElementById( 'latex-editor-textarea' ) as HTMLTextAreaElement;
+    if ( ! textarea ) return;
+
+    const start = textarea.selectionStart || 0;
+    const end = textarea.selectionEnd || 0;
+    const newLatex = latex.slice( 0, start ) + symbol + latex.slice( end );
+    setLatex( newLatex );
+
+    requestAnimationFrame( () => {
+      textarea.focus();
+      const pos = start + symbol.length;
+      textarea.setSelectionRange( pos, pos );
+    } );
+  }, [ latex ] );
+
   // Export LaTeX as PNG image
   const handleExportImage = useCallback( async () => {
     if ( ! previewRef.current ) return;
