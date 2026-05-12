@@ -208,5 +208,16 @@ export const LATEX_SYMBOLS: LaTeXSymbol[] = [
   { label: 'ℕ', latex: '\\mathbb{N}', category: 'Symbols', tooltip: 'Natural Numbers' },
   { label: 'ℤ', latex: '\\mathbb{Z}', category: 'Symbols', tooltip: 'Integers' },
   { label: 'ℚ', latex: '\\mathbb{Q}', category: 'Symbols', tooltip: 'Rational Numbers' },
-  { label: 'ℙ', latex: '\\mathbb{P}', category: 'Symbols', tooltip: 'Prime Numbers / Probability' }
+  { label: 'ℙ', latex: '\\mathbb{P}', category: 'Symbols', tooltip: 'Prime Numbers / Probability' },
+
+  // FONTS
+  { label: 'bb', latex: '\\mathbb{X}', category: 'Fonts', tooltip: 'Blackboard Bold Font: \\mathbb{X}' },
+  { label: 'cal', latex: '\\mathcal{X}', category: 'Fonts', tooltip: 'Calligraphic Font: \\mathcal{X}' },
+  { label: 'frak', latex: '\\mathfrak{X}', category: 'Fonts', tooltip: 'Fraktur Font: \\mathfrak{X}' },
+  { label: 'scr', latex: '\\mathscr{X}', category: 'Fonts', tooltip: 'Script Font: \\mathscr{X}' },
+  { label: 'bold', latex: '\\mathbf{x}', category: 'Fonts', tooltip: 'Bold Font: \\mathbf{x}' },
+  { label: 'italic', latex: '\\mathit{x}', category: 'Fonts', tooltip: 'Italic Font: \\mathit{x}' },
+  { label: 'roman', latex: '\\mathrm{x}', category: 'Fonts', tooltip: 'Roman Font: \\mathrm{x}' },
+  { label: 'sans', latex: '\\mathsf{x}', category: 'Fonts', tooltip: 'Sans-Serif Font: \\mathsf{x}' },
+  { label: 'mono', latex: '\\mathtt{x}', category: 'Fonts', tooltip: 'Monospace Font: \\mathtt{x}' }
 ];
