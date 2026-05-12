@@ -169,5 +169,15 @@ export const LATEX_SYMBOLS: LaTeXSymbol[] = [
   { label: '⇎', latex: '\\nLeftrightarrow', category: 'Arrows', tooltip: 'Canceled Double Left-Right Arrow' },
   { label: '⟶', latex: '\\longrightarrow', category: 'Arrows', tooltip: 'Long Right Arrow' },
   { label: '⟵', latex: '\\longleftarrow', category: 'Arrows', tooltip: 'Long Left Arrow' },
-  { label: '⟺', latex: '\\Longleftrightarrow', category: 'Arrows', tooltip: 'Long Iff' }
+  { label: '⟺', latex: '\\Longleftrightarrow', category: 'Arrows', tooltip: 'Long Iff' },
+
+  // BRACKETS
+  { label: '( )', latex: '\\left( x \\right)', category: 'Brackets', tooltip: 'Dynamic Parentheses' },
+  { label: '[ ]', latex: '\\left[ x \\right]', category: 'Brackets', tooltip: 'Dynamic Brackets' },
+  { label: '{ }', latex: '\\left\\{ x \\right\\}', category: 'Brackets', tooltip: 'Dynamic Braces' },
+  { label: '| |', latex: '\\left| x \\right|', category: 'Brackets', tooltip: 'Dynamic Absolute Value / Norm' },
+  { label: '‖ ‖', latex: '\\left\\| x \\right\\|', category: 'Brackets', tooltip: 'Dynamic Double Norm' },
+  { label: '⟨ ⟩', latex: '\\langle x \\rangle', category: 'Brackets', tooltip: 'Angle Brackets' },
+  { label: '⌈ ⌉', latex: '\\lceil x \\rceil', category: 'Brackets', tooltip: 'Ceiling Brackets' },
+  { label: '⌊ ⌋', latex: '\\lfloor x \\rfloor', category: 'Brackets', tooltip: 'Floor Brackets' }
 ];
