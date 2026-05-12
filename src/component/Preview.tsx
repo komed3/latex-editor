@@ -20,6 +20,24 @@ export const Preview: React.FC< PreviewProps > = memo( ( {
   latex, zoom, pan, isPanning, isExporting, previewRef,
   onWheel, onMouseDown, setZoom, resetView
 } ) => {
+  const contentRef = useRef< HTMLDivElement >( null );
+  const [ autoScale, setAutoScale ] = useState( 1 );
+  const { showTooltip, hideTooltip } = useTooltip();
+
+  useEffect( () => {
+    if ( contentRef.current ) {
+      const containerWidth = 800;
+      const contentWidth = contentRef.current.scrollWidth;
+
+      if ( contentWidth > containerWidth ) setAutoScale( containerWidth / contentWidth );
+      else setAutoScale( 1 );
+    }
+  }, [ latex ] );
+
+  const handleMouseMove = ( e: React.MouseEvent, label: string ) => {
+    showTooltip( label, e.clientX, e.clientY );
+  };
+
   return ( <></> );
 } );
 
