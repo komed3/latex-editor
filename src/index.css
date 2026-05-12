@@ -33,3 +33,9 @@ body {
   overflow: hidden;
   cursor: default;
 }
+
+.token.function, .token.keyword { color: #0056b3; font-weight: 600; }
+.token.punctuation { color: #666; }
+.token.operator { color: #d73a49; }
+.token.string { color: #22863a; }
+.token.comment { color: #6a737d; font-style: italic; }
