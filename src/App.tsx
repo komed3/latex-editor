@@ -10,29 +10,31 @@ export default function App () {
 
   return (
     <TooltipProvider>
-      <Ribbon
-        { ...E }
-        onClear={ () => E.setLatex( '' ) }
-        onExportPNG={ E.handleExportImage }
-        onExportPDF={ E.handleExportPDF }
-        onShare={ E.handleShare }
-      />
-      <main className="flex-1 flex flex-col overflow-hidden">
-        <Editor
-          latex={ E.latex }
-          setLatex={ E.setLatex }
-        />
-        <Preview
+      <div className="flex flex-col h-screen bg-[#f3f2f1] overflow-hidden">
+        <Ribbon
           { ...E }
-          resetView={ E.resetView }
-          onMouseDown={ E.handleMouseDown }
-          onWheel={ E.handleWheel }
+          onClear={ () => E.setLatex( '' ) }
+          onExportPNG={ E.handleExportImage }
+          onExportPDF={ E.handleExportPDF }
+          onShare={ E.handleShare }
         />
-      </main>
-      <Footer
-        length={ E.latex.length }
-        isExporting={ E.isExporting }
-      />
+        <main className="flex-1 flex flex-col overflow-hidden">
+          <Editor
+            latex={ E.latex }
+            setLatex={ E.setLatex }
+          />
+          <Preview
+            { ...E }
+            resetView={ E.resetView }
+            onMouseDown={ E.handleMouseDown }
+            onWheel={ E.handleWheel }
+          />
+        </main>
+        <Footer
+          length={ E.latex.length }
+          isExporting={ E.isExporting }
+        />
+      </div>
     </TooltipProvider>
   );
 }

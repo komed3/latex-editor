@@ -67,6 +67,31 @@ export const Preview: React.FC< PreviewProps > = memo( ( {
           ><Maximize2 size={ 14 } /></button>
         </div>
       </div>
+
+      {/** LaTeX preview */}
+      <div onWheel={ onWheel } onMouseDown={ onMouseDown } className={
+        `relative flex-1 overflow-hidden ${ isPanning ? 'cursor-grabbing' : 'cursor-grab' }`
+      }>
+        <div className="absolute flex justify-center items-center pointer-events-none inset-0" style={ {
+          transform: `translate(${ pan.x }px, ${ pan.y }px) scale(${ zoom })`,
+          transformOrigin: "center"
+        } }>
+          <div id="export-container" ref={ previewRef } className="
+            relative flex justify-center items-center min-w-200 min-h-100 p-20 pointer-events-auto
+            bg-white shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-[#e1dfdd]
+          ">
+            <div className="absolute top-0 left-0 w-full h-0.5 bg-[#2b579a] opacity-40" />
+            <div
+              ref={ contentRef }
+              style={ { transform: `scale(${ autoScale })`, transformOrigin: 'center' } }
+              className="text-[80px] transition-all duration-300 opacity-100"
+              dangerouslySetInnerHTML={ {
+                __html: katex.renderToString( latex, { displayMode: true, throwOnError: false } )
+              } }
+            />
+          </div>
+        </div>
+      </div>
     </div>
   );
 } );
