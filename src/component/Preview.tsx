@@ -9,7 +9,7 @@ interface PreviewProps {
   pan: { x: number; y: number };
   isPanning: boolean;
   isExporting: boolean;
-  previewRef: React.RefObject< HTMLDivElement >;
+  previewRef: React.RefObject< HTMLDivElement | null >;
   onWheel: ( e: React.WheelEvent ) => void;
   onMouseDown: ( e: React.MouseEvent ) => void;
   setZoom: ( val: ( prev: number ) => number ) => void;
@@ -18,7 +18,9 @@ interface PreviewProps {
 
 export const Preview: React.FC< PreviewProps > = memo( ( {
   latex, zoom, pan, isPanning, isExporting, previewRef,
-  onWheel, onMouseDown, setZoom, resetView 
-} ) => {} );
+  onWheel, onMouseDown, setZoom, resetView
+} ) => {
+  return ( <></> );
+} );
 
 Preview.displayName = 'Preview';
