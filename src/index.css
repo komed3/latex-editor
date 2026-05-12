@@ -1,2 +1,19 @@
 @import 'tailwindcss';
 @import 'katex/dist/katex.min.css';
+
+@font-face {
+  font-family: 'Inter';
+  src: url( './assets/Inter.woff2' ) format( 'woff2' );
+  font-weight: 100 900;
+}
+
+@font-face {
+  font-family: 'Fira Code';
+  src: url( './assets/FiraCode.woff2' ) format( 'woff2' );
+  font-weight: 100 900;
+}
+
+@theme {
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'Fira Code', ui-monospace, monospace;
+}
