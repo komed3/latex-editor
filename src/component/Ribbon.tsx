@@ -2,6 +2,7 @@ import katex from 'katex';
 import { FileText, ImageIcon, Search, Share2, Sigma, Trash2 } from 'lucide-react';
 import type React from 'react';
 import { LATEX_CATEGORIES, LATEX_SYMBOLS, type LaTeXSymbol } from '../def/latex';
+import { useTooltip } from './Tooltip';
 
 interface RibbonProps {
   activeTab: string;
@@ -20,21 +21,25 @@ interface AButtonProps {
   icon: React.ReactNode;
   label: string;
   colorClass: string;
+  onMove: ( e: React.MouseEvent, symbol: any ) => void;
+  onLeave: () => void;
 }
 
 interface SButtonProps {
   symbol: LaTeXSymbol;
   onClick: () => void;
+  onMove: ( e: React.MouseEvent, symbol: any ) => void;
+  onLeave: () => void;
 }
 
-const ActionButton: React.FC< AButtonProps > = ( { onClick, icon, label, colorClass } ) => (
-  <button onClick={ onClick } onMouseLeave={ () => undefined } onMouseMove={ () => undefined } className={
+const ActionButton: React.FC< AButtonProps > = ( { onClick, icon, label, colorClass, onMove, onLeave } ) => (
+  <button onClick={ onClick } onMouseMove={ ( e ) => onMove( e, label ) } onMouseLeave={ onLeave } className={
     `p-1.5 rounded hover:bg-[#edebe9] active:bg-[#e1dfdd] ${ colorClass } transition-colors cursor-pointer`
   }>{ icon }</button>
 );
 
-const SymbolButton: React.FC< SButtonProps > = ( { symbol, onClick } ) => (
-  <button onClick={ onClick } onMouseLeave={ () => undefined } onMouseMove={ () => undefined } className="
+const SymbolButton: React.FC< SButtonProps > = ( { symbol, onClick, onMove, onLeave } ) => (
+  <button onClick={ onClick } onMouseMove={ ( e ) => onMove( e, symbol ) } onMouseLeave={ onLeave } className="
     group flex flex-col justify-start items-center min-w-19 h-21.5 pt-1 pb-1 bg-white/50
     hover:bg-white active:bg-[#edebe9] rounded-sm border border-transparent hover:border-[#c8c6c4]
     transition-all cursor-pointer
@@ -57,6 +62,11 @@ export const Ribbon: React.FC< RibbonProps > = ( {
   activeTab, setActiveTab, insertLatex, onClear, onShare, onExportPNG,
   onExportPDF, searchQuery, setSearchQuery
 } ) => {
+  const { showTooltip, hideTooltip } = useTooltip();
+  const handleMouseMove = ( e: React.MouseEvent, content: any ) => {
+    showTooltip( content, e.clientX, e.clientY );
+  };
+
   const filteredSymbols = LATEX_SYMBOLS.filter( s => {
     const query = searchQuery.toLowerCase();
 
@@ -111,11 +121,23 @@ export const Ribbon: React.FC< RibbonProps > = ( {
         </div>
         <div className="flex-1" />
         <div className="flex gap-1 py-1 pr-1">
-          <ActionButton onClick={ onClear } icon={ <Trash2 size={ 16 } />} label="Clear All Data" colorClass="text-[#d13438]" />
+          <ActionButton
+            onClick={ onClear } icon={ <Trash2 size={ 16 } />} label="Clear All Data" colorClass="text-[#d13438]"
+            onMove={ handleMouseMove } onLeave={ hideTooltip }
+          />
           <div className="w-px mx-1 my-1 bg-[#e1dfdd]" />
-          <ActionButton onClick={ onShare } icon={ <Share2 size={ 16 } /> } label="Share Link" colorClass="text-[#2b579a]" />
-          <ActionButton onClick={ onExportPNG } icon={ <ImageIcon size={ 16 } /> } label="Export as PNG" colorClass="text-[#107c10]" />
-          <ActionButton onClick={ onExportPDF } icon={ <FileText size={ 16 } /> } label="Export as PDF" colorClass="text-[#a4262c]" />
+          <ActionButton
+            onClick={ onShare } icon={ <Share2 size={ 16 } /> } label="Share Link" colorClass="text-[#2b579a]"
+            onMove={ handleMouseMove } onLeave={ hideTooltip }
+          />
+          <ActionButton
+            onClick={ onExportPNG } icon={ <ImageIcon size={ 16 } /> } label="Export as PNG" colorClass="text-[#107c10]"
+            onMove={ handleMouseMove } onLeave={ hideTooltip }
+          />
+          <ActionButton
+            onClick={ onExportPDF } icon={ <FileText size={ 16 } /> } label="Export as PDF" colorClass="text-[#a4262c]"
+            onMove={ handleMouseMove } onLeave={ hideTooltip }
+          />
         </div>
       </div>
     </header>
