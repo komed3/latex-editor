@@ -8,7 +8,6 @@ interface PreviewProps {
   zoom: number;
   pan: { x: number; y: number };
   isPanning: boolean;
-  isExporting: boolean;
   previewRef: React.RefObject< HTMLDivElement | null >;
   onWheel: ( e: React.WheelEvent ) => void;
   onMouseDown: ( e: React.MouseEvent ) => void;
@@ -17,8 +16,7 @@ interface PreviewProps {
 }
 
 export const Preview: React.FC< PreviewProps > = memo( ( {
-  latex, zoom, pan, isPanning, isExporting, previewRef,
-  onWheel, onMouseDown, setZoom, resetView
+  latex, zoom, pan, isPanning, previewRef, onWheel, onMouseDown, setZoom, resetView
 } ) => {
   const contentRef = useRef< HTMLDivElement >( null );
   const [ autoScale, setAutoScale ] = useState( 1 );
@@ -78,9 +76,8 @@ export const Preview: React.FC< PreviewProps > = memo( ( {
         } }>
           <div id="export-container" ref={ previewRef } className="
             relative flex justify-center items-center min-w-200 min-h-100 p-20 pointer-events-auto
-            bg-white shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-[#e1dfdd]
+            bg-white shadow-[0_8px_30px_rgb(0,0,0,0.12)]
           ">
-            <div className="absolute top-0 left-0 w-full h-0.5 bg-[#2b579a] opacity-40" />
             <div
               ref={ contentRef }
               style={ { transform: `scale(${ autoScale })`, transformOrigin: 'center' } }
