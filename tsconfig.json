@@ -4,6 +4,7 @@
     "module": "ESNext",
     "moduleResolution": "bundler",
     "moduleDetection": "force",
+    "types": [ "node" ],
     "lib": [ "ES2022", "DOM", "DOM.Iterable" ],
     "jsx": "react-jsx",
     "isolatedModules": true,
