@@ -272,5 +272,21 @@ export const LATEX_SYMBOLS = [
   { label: 'cases', latex: '\\begin{cases} x & x > 0 \\\\ -x & x \\le 0 \\end{cases}', category: 'Environments', tooltip: 'Cases / Piecewise function' },
   { label: 'aligned', latex: '\\begin{aligned} a &= b \\\\ c &= d \\end{aligned}', category: 'Environments', tooltip: 'Aligned Equations' },
   { label: 'array', latex: '\\begin{array}{cc} a & b \\\\ c & d \\end{array}', category: 'Environments', tooltip: 'Manual Array' },
-  { label: 'gather', latex: '\\begin{gathered} a = b \\\\ c = d \\end{gathered}', category: 'Environments', tooltip: 'Gathered Equations' }
+  { label: 'gather', latex: '\\begin{gathered} a = b \\\\ c = d \\end{gathered}', category: 'Environments', tooltip: 'Gathered Equations' },
+
+  // ACCENTS
+  { label: 'dot', latex: '\\dot{x}', category: 'Accents', tooltip: 'Dot' },
+  { label: 'ddot', latex: '\\ddot{x}', category: 'Accents', tooltip: 'Double Dot' },
+  { label: 'bar', latex: '\\bar{x}', category: 'Accents', tooltip: 'Bar' },
+  { label: 'hat', latex: '\\hat{x}', category: 'Accents', tooltip: 'Hat' },
+  { label: 'tilde', latex: '\\tilde{x}', category: 'Accents', tooltip: 'Tilde' },
+  { label: 'vec', latex: '\\vec{x}', category: 'Accents', tooltip: 'Vector' },
+  { label: 'check', latex: '\\check{x}', category: 'Accents', tooltip: 'Check' },
+  { label: 'breve', latex: '\\breve{x}', category: 'Accents', tooltip: 'Breve' },
+  { label: 'overline', latex: '\\overline{xyz}', category: 'Accents', tooltip: 'Overline' },
+  { label: 'underline', latex: '\\underline{xyz}', category: 'Accents', tooltip: 'Underline' },
+  { label: 'overbrace', latex: '\\overbrace{abc}', category: 'Accents', tooltip: 'Overbrace' },
+  { label: 'underbrace', latex: '\\underbrace{abc}', category: 'Accents', tooltip: 'Underbrace' },
+  { label: 'widehat', latex: '\\widehat{xyz}', category: 'Accents', tooltip: 'Wide Hat' },
+  { label: 'widetilde', latex: '\\widetilde{xyz}', category: 'Accents', tooltip: 'Wide Tilde' }
 ] as const satisfies LaTeXSymbol[];
