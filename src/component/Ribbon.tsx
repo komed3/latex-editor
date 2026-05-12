@@ -1,6 +1,6 @@
 import { Search, Sigma } from 'lucide-react';
 import type React from 'react';
-import { LATEX_CATEGORIES } from '../def/latex';
+import { LATEX_CATEGORIES, LATEX_SYMBOLS } from '../def/latex';
 
 interface RibbonProps {
   activeTab: string;
@@ -18,6 +18,13 @@ export const Ribbon: React.FC< RibbonProps > = ( {
   activeTab, setActiveTab, insertLatex, onClear, onShare, onExportPNG,
   onExportPDF, searchQuery, setSearchQuery
 } ) => {
+  const filteredSymbols = LATEX_SYMBOLS.filter( s => {
+    const query = searchQuery.toLowerCase();
+    const matchesSearch = s.label.toLowerCase().includes( query ) || s.latex.toLowerCase().includes( query );
+
+    return searchQuery ? matchesSearch : s.category === activeTab;
+  } );
+
   return (
     <header className="relative z-100 flex flex-col shrink-0 bg-[#f3f2f1] select-none shadow-sm">
       {/** Title and search bar */}
