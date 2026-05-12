@@ -2,7 +2,22 @@ import { Search, Sigma } from 'lucide-react';
 import type React from 'react';
 import { LATEX_CATEGORIES } from '../def/latex';
 
-export const Ribbon: React.FC = ( {} ) => {
+interface RibbonProps {
+  activeTab: string;
+  setActiveTab: ( tab: string ) => void;
+  insertLatex: ( latex: string ) => void;
+  onClear: () => void;
+  onShare: () => void;
+  onExportPNG: () => void;
+  onExportPDF: () => void;
+  searchQuery: string;
+  setSearchQuery: ( query: string ) => void;
+}
+
+export const Ribbon: React.FC< RibbonProps > = ( {
+  activeTab, setActiveTab, insertLatex, onClear, onShare, onExportPNG,
+  onExportPDF, searchQuery, setSearchQuery
+} ) => {
   return (
     <header className="relative z-100 flex flex-col shrink-0 bg-[#f3f2f1] select-none shadow-sm">
       {/** Title and search bar */}
