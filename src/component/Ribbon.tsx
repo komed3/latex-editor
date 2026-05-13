@@ -1,5 +1,5 @@
 import katex from 'katex';
-import { FileText, ImageIcon, Search, Share2, Sigma, Trash2 } from 'lucide-react';
+import { FileText, Heart, ImageIcon, Search, Share2, Sigma, Trash2 } from 'lucide-react';
 import type React from 'react';
 import { LATEX_CATEGORIES, LATEX_SYMBOLS, type LaTeXSymbol } from '../def/latex';
 import { useTooltip } from './Tooltip';
@@ -99,9 +99,10 @@ export const Ribbon: React.FC< RibbonProps > = ( {
             " />
           </div>
         </div>
-        <div className="flex gap-2 font-mono text-[10px] opacity-60">
-          <span>Build { process.env.build || 'XXXXXXX' }</span>
-        </div>
+        <a href="https://ko-fi.com/komed3" target="_blank" className="flex items-center gap-2 py-1 px-2.5 text-xs font-bold text-[#323130] bg-white rounded">
+          <Heart size={ 14 } strokeWidth={ 3 } />
+          Donate
+        </a>
       </div>
 
       {/** Category tabs */}

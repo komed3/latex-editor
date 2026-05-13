@@ -18,11 +18,11 @@ export const Footer: React.FC< FooterProps > = ( { length, isExporting } ) => {
         ) : '' }
       </div>
       <div className="flex items-center gap-3 uppercase text-[10px] opacity-70">
-        <span>&copy; 2026 by <a href="https://komed3.de">komed3</a></span>
+        <span>&copy; 2026 by <a href="https://komed3.de" target="_blank">komed3</a></span>
         <div className="w-px h-3 my-1 bg-[#e1dfdd]" />
-        <a href="https://github.com/komed3/latex-editor">GitHub</a>
+        <a href="https://github.com/komed3/latex-editor" target="_blank">GitHub</a>
         <div className="w-px h-3 my-1 bg-[#e1dfdd]" />
-        <a href="https://en.wikibooks.org/wiki/LaTeX/Mathematics">LaTeX Docs</a>
+        <a href="https://en.wikibooks.org/wiki/LaTeX/Mathematics" target="_blank">LaTeX Docs</a>
         <div className="w-px h-3 my-1 bg-[#e1dfdd]" />
         <span>Build { process.env.build || 'XXXXXXX' }</span>
       </div>
