@@ -1,4 +1,5 @@
 import katex from 'katex';
+import 'katex/dist/contrib/mhchem.mjs';
 import { FileText, Heart, ImageIcon, Info, Search, Share2, Sigma, Trash2 } from 'lucide-react';
 import type React from 'react';
 import { LATEX_CATEGORIES, LATEX_SYMBOLS, type LaTeXSymbol } from '../def/latex';

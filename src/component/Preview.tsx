@@ -1,4 +1,5 @@
 import katex from 'katex';
+import 'katex/dist/contrib/mhchem.mjs';
 import { ZoomIn, ZoomOut, Maximize2 } from 'lucide-react';
 import React, { memo } from 'react';
 import { useTooltip } from './Tooltip';
