@@ -85,28 +85,42 @@ export const Preview: React.FC< PreviewProps > = memo( ( {
   const edgeB = centerY + ( contentDims.h / 2 + currentPadding ) * currentZoom;
 
   return (
-    <div className="relative flex-1 flex flex-col bg-[#edebe9] overflow-hidden select-none touch-none">
+    <div className="relative flex-1 flex flex-col bg-white overflow-hidden select-none touch-none">
       <div className="flex justify-between items-center h-8 px-4 z-20 font-medium text-[11px] text-[#605e5c] bg-white border-b border-[#e1dfdd]">
         <div className="flex items-center gap-4">
           <span className="uppercase tracking-wider opacity-60">Result Preview</span>
+          <div className="w-px h-4 bg-[#e1dfdd]" />
+          <label className="flex items-center gap-2 hover:text-[#2b579a] cursor-pointer">
+            <input type="checkbox" checked={ autoZoom } onChange={ ( e ) => {
+              if ( e.target.checked ) resetView();
+              setAutoZoom( e.target.checked );
+            } } className="accent-[#2b579a]" />
+            <span>Auto Scale</span>
+          </label>
         </div>
         <div className="flex items-center gap-3">
           <button
-            onClick={ () => setZoom( z => Math.max( z - 0.1, 0.1 ) ) }
+            onClick={ () => {
+                setZoom( () => Math.max( currentZoom - 0.1, 0.1 ) );
+                setAutoZoom( false );
+            } }
             onMouseMove={ ( e ) => handleMouseMove( e, 'Zoom Out' ) }
             onMouseLeave={ hideTooltip }
             className="hover:text-[#2b579a] cursor-pointer"
           ><ZoomOut size={ 14 } /></button>
           <span className="w-10 text-center font-mono">{ Math.round( zoom * 100 ) }%</span>
           <button
-            onClick={ () => setZoom( z => Math.min( z + 0.1, 5 ) ) }
+            onClick={ () => {
+                setZoom( () => Math.min( currentZoom + 0.1, 5 ) );
+                setAutoZoom( false );
+            } }
             onMouseMove={ ( e ) => handleMouseMove( e, 'Zoom In' ) }
             onMouseLeave={ hideTooltip }
             className="hover:text-[#2b579a] cursor-pointer"
           ><ZoomIn size={ 14 } /></button>
-          <div className="w-px h-3 bg-[#e1dfdd]" />
+          <div className="w-px h-4 bg-[#e1dfdd]" />
           <button
-            onClick={ resetView }
+            onClick={ () => { resetView(), setAutoZoom( true ) } }
             onMouseMove={ ( e ) => handleMouseMove( e, 'Reset View' ) }
             onMouseLeave={ hideTooltip }
             className="hover:text-[#2b579a] cursor-pointer"
@@ -115,25 +129,31 @@ export const Preview: React.FC< PreviewProps > = memo( ( {
       </div>
 
       {/** LaTeX preview */}
-      <div onWheel={ onWheel } onMouseDown={ onMouseDown } className={
-        `relative flex-1 overflow-hidden ${ isPanning ? 'cursor-grabbing' : 'cursor-grab' }`
-      }>
-        <div className="absolute flex justify-center items-center pointer-events-none inset-0" style={ {
-          transform: `translate(${ pan.x }px, ${ pan.y }px) scale(${ zoom })`,
-          transformOrigin: "center"
+      <div ref={ containerRef } className={
+        `flex-1 overflow-hidden relative ${ isPanning ? 'cursor-grabbing' : 'cursor-grab' }`
+      } onMouseDown={ onMouseDown } onWheel={ ( e ) => {
+        if ( autoZoom ) { setZoom( () => internalScale ), setAutoZoom( false ) }
+        onWheel( e );
+      } }>
+        {/** Guide Lines Layer */}
+        { ! isExporting && (
+          <div className="absolute inset-0 z-10 pointer-events-none overflow-hidden">
+            <div className="absolute left-0 right-0 h-1 border-t border-dashed border-[#2b579a]/40" style={ { top: edgeT } } />
+            <div className="absolute left-0 right-0 h-1 border-t border-dashed border-[#2b579a]/40" style={ { top: edgeB } } />
+            <div className="absolute top-0 bottom-0 w-1 border-l border-dashed border-[#2b579a]/40" style={ { left: edgeL } } />
+            <div className="absolute top-0 bottom-0 w-px border-l border-dashed border-[#2b579a]/40" style={ { left: edgeR } } />
+          </div>
+        ) }
+
+        {/** Output */}
+        <div className="absolute inset-0 flex justify-center items-center pointer-events-none" style={ {
+          transform: `translate(${ pan.x }px, ${ pan.y }px) scale(${ currentZoom })`,
+          transformOrigin: 'center'
         } }>
-          <div id="export-container" ref={ previewRef } className="
-            relative flex justify-center items-center min-w-200 min-h-100 p-20 pointer-events-auto
-            bg-white shadow-[0_8px_30px_rgb(0,0,0,0.12)]
-          ">
-            <div
-              ref={ contentRef }
-              style={ { transform: `scale(${ 1 })`, transformOrigin: 'center' } }
-              className="text-[80px] transition-all duration-300 opacity-100"
-              dangerouslySetInnerHTML={ {
-                __html: katex.renderToString( latex, { displayMode: true, throwOnError: false } )
-              } }
-            />
+          <div id="export-container" ref={ previewRef } className="relative flex justify-center items-center p-0 bg-white pointer-events-auto">
+            <div ref={ contentRef } className="m-0 p-0 text-[80px] opacity-100" dangerouslySetInnerHTML={ {
+              __html: katex.renderToString( latex, { displayMode: true, throwOnError: false } )
+            } } />
           </div>
         </div>
       </div>
