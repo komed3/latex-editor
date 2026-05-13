@@ -45,9 +45,9 @@ const SymbolButton: React.FC< SButtonProps > = ( { symbol, onClick, onMove, onLe
     transition-all cursor-pointer
   ">
     <div className="pointer-events-none flex-1 flex justify-center items-center w-full max-h-14 px-1 text-[#323130] overflow-hidden">
-      <div className={
-        `flex justify-center items-center transform scale-[${ symbol.scale }] origin-center`
-      } dangerouslySetInnerHTML={ {
+      <div className="flex justify-center items-center transform origin-center" style={ {
+        transform: `scale(${ symbol.scale })`
+      } } dangerouslySetInnerHTML={ {
         __html: katex.renderToString( symbol.latex, { throwOnError: false } )
       } } />
     </div>
