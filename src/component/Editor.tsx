@@ -1,7 +1,7 @@
 import { Copy } from 'lucide-react';
 import { highlight } from 'prismjs';
 import 'prismjs/components/prism-latex';
-import type React from 'react';
+import React, { useState } from 'react';
 import RawEditor from 'react-simple-code-editor';
 
 // Fix for CommonJS/ESM interop issues in some environments
@@ -33,8 +33,17 @@ interface EditorProps {
 }
 
 export const Editor: React.FC< EditorProps > = ( { latex, setLatex } ) => {
+  const [ currentLine, setCurrentLine ] = useState( 1 );
   const lineCount = latex.split( '\n' ).length;
   const lineNumbers = Array.from( { length: lineCount }, ( _, i ) => i + 1 );
+
+  const updateCurrentLine = ( e: any ) => {
+    const textarea = e.target;
+    const selectionStart = textarea.selectionStart;
+    const lines = latex.substring( 0, selectionStart ).split( '\n' );
+
+    setCurrentLine( lines.length );
+  };
 
   return (
     <div className="flex flex-col shrink-0 h-48 bg-white border-b border-[#e1dfdd] shadow-inner">
@@ -52,7 +61,10 @@ export const Editor: React.FC< EditorProps > = ( { latex, setLatex } ) => {
           {/** Line Numbers Gutter */}
           <div className="shrink-0 w-10 pt-2 pr-2 pb-2 text-right bg-[#f8f9fa] border-r border-[#e1dfdd] select-none">
             { lineNumbers.map( n => (
-              <div key={ n } className="font-mono text-[12px] leading-5.25 text-[#a19f9d]">{ n }</div>
+              <div key={ n } className={ `
+                font-mono text-[12px] leading-5.25 transition-colors duration-100
+                ${ n === currentLine ? 'text-[#2b579a] font-bold' : 'text-[#a19f9d]' }
+              ` }>{ n }</div>
             ) ) }
           </div>
 
@@ -62,6 +74,9 @@ export const Editor: React.FC< EditorProps > = ( { latex, setLatex } ) => {
               value={ latex }
               onValueChange={ setLatex }
               highlight={ ( code: any ) => highlight( code, latexGrammar, 'latex' ) }
+              onKeyUp={ updateCurrentLine }
+              onMouseUp={ updateCurrentLine }
+              onFocus={ updateCurrentLine }
               padding={ 8 }
               className="latex-editor"
               textareaId="latex-editor-textarea"
