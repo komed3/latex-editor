@@ -33,6 +33,9 @@ interface EditorProps {
 }
 
 export const Editor: React.FC< EditorProps > = ( { latex, setLatex } ) => {
+  const lineCount = latex.split( '\n' ).length;
+  const lineNumbers = Array.from( { length: lineCount }, ( _, i ) => i + 1 );
+
   return (
     <div className="flex flex-col shrink-0 h-48 bg-white border-b border-[#e1dfdd] shadow-inner">
       <div className="flex justify-between items-center h-8 px-4 z-20 font-medium text-[11px] text-[#605e5c] bg-white border-b border-[#e1dfdd]">
@@ -45,20 +48,33 @@ export const Editor: React.FC< EditorProps > = ( { latex, setLatex } ) => {
         ><Copy size={ 12 } /> <span className="hidden sm:inline">Copy to Clipboard</span></button>
       </div>
       <div className="flex-1 overflow-auto bg-white no-scrollbar">
-        <EditorComponent
-          value={ latex }
-          onValueChange={ setLatex }
-          highlight={ ( code: any ) => highlight( code, latexGrammar, 'latex' ) }
-          padding={ 14 }
-          className="latex-editor"
-          textareaId="latex-editor-textarea"
-          textareaClassName="outline-none"
-          style={ {
-            fontFamily: '"Fira Code", monospace',
-            fontSize: 14,
-            minHeight: '100%'
-          } }
-        />
+        <div className="flex min-h-full">
+          {/** Line Numbers Gutter */}
+          <div className="shrink-0 w-10 pt-3.5 pr-2 pb-4 text-right bg-[#f8f9fa] border-r border-[#e1dfdd] select-none">
+            { lineNumbers.map( n => (
+              <div key={ n } className="font-mono text-[12px] leading-5.25 text-[#a19f9d]">{ n }</div>
+            ) ) }
+          </div>
+
+          {/** Editor Area */}
+          <div className="flex-1">
+            <EditorComponent
+              value={ latex }
+              onValueChange={ setLatex }
+              highlight={ ( code: any ) => highlight( code, latexGrammar, 'latex' ) }
+              padding={ 14 }
+              className="latex-editor"
+              textareaId="latex-editor-textarea"
+              textareaClassName="outline-none"
+              style={ {
+                fontFamily: '"Fira Code", monospace',
+                fontSize: 14,
+                lineHeight: '21px',
+                minHeight: '100%'
+              } }
+            />
+          </div>
+        </div>
       </div>
     </div>
   );
