@@ -48,9 +48,9 @@ export const Editor: React.FC< EditorProps > = ( { latex, setLatex } ) => {
         ><Copy size={ 12 } /> <span className="hidden sm:inline">Copy to Clipboard</span></button>
       </div>
       <div className="flex-1 overflow-auto bg-white no-scrollbar">
-        <div className="flex min-h-full">
+        <div className="flex min-h-full gap-2">
           {/** Line Numbers Gutter */}
-          <div className="shrink-0 w-10 pt-3.5 pr-2 pb-4 text-right bg-[#f8f9fa] border-r border-[#e1dfdd] select-none">
+          <div className="shrink-0 w-10 pt-2 pr-2 pb-2 text-right bg-[#f8f9fa] border-r border-[#e1dfdd] select-none">
             { lineNumbers.map( n => (
               <div key={ n } className="font-mono text-[12px] leading-5.25 text-[#a19f9d]">{ n }</div>
             ) ) }
@@ -62,7 +62,7 @@ export const Editor: React.FC< EditorProps > = ( { latex, setLatex } ) => {
               value={ latex }
               onValueChange={ setLatex }
               highlight={ ( code: any ) => highlight( code, latexGrammar, 'latex' ) }
-              padding={ 14 }
+              padding={ 8 }
               className="latex-editor"
               textareaId="latex-editor-textarea"
               textareaClassName="outline-none"
