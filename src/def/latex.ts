@@ -37,7 +37,8 @@ export const LATEX_SYMBOLS = [
   { label: 'Triple Int', latex: '\\iiint_{V}', category: 'Functions', tooltip: 'Triple Integral: \\iiint', scale: 1.4 },
   { label: 'Contour Int', latex: '\\oint_{C}', category: 'Functions', tooltip: 'Contour Integral: \\oint', scale: 1.4 },
   { label: 'Partial', latex: '\\partial', category: 'Functions', tooltip: 'Partial: \\partial', scale: 1.8 },
-  { label: 'Derivative', latex: '\\frac{dy}{dx}', category: 'Functions', tooltip: 'Derivative: \\frac{dy}{dx}', scale: 1.6 },
+  { label: 'Derivative', latex: '\\frac{d }{dx}', category: 'Functions', tooltip: 'Derivative: \\frac{d }{dx}', scale: 1.6 },
+  { label: 'Partial Deriv', latex: '\\frac{\\partial }{\\partial x}', category: 'Functions', tooltip: 'Partial Derivative: \\frac{\\partial }{\\partial x}', scale: 1.6 },
   { label: 'sin', latex: '\\sin', category: 'Functions', tooltip: 'Sine', scale: 1.4 },
   { label: 'cos', latex: '\\cos', category: 'Functions', tooltip: 'Cosine', scale: 1.4 },
   { label: 'tan', latex: '\\tan', category: 'Functions', tooltip: 'Tangent', scale: 1.4 },
@@ -66,8 +67,8 @@ export const LATEX_SYMBOLS = [
   { label: 'Pr', latex: '\\Pr', category: 'Functions', tooltip: 'Probability', scale: 1.4 },
   { label: 'hom', latex: '\\hom', category: 'Functions', tooltip: 'Homomorphism', scale: 1.4 },
   { label: 'lim', latex: '\\lim', category: 'Functions', tooltip: 'Limit', scale: 1.4 },
-  { label: 'liminf', latex: '\\liminf', category: 'Functions', tooltip: 'Limit Infimum', scale: 1.2 },
-  { label: 'limsup', latex: '\\limsup', category: 'Functions', tooltip: 'Limit Supremum', scale: 1.2 },
+  { label: 'lim inf', latex: '\\liminf', category: 'Functions', tooltip: 'Limit Infimum', scale: 1.2 },
+  { label: 'lim sup', latex: '\\limsup', category: 'Functions', tooltip: 'Limit Supremum', scale: 1.2 },
 
   // OPERATORS
   { label: '+', latex: '+', category: 'Operators', tooltip: 'Add', scale: 1.8 },
@@ -98,10 +99,6 @@ export const LATEX_SYMBOLS = [
   { label: '∖', latex: '\\setminus', category: 'Operators', tooltip: 'Set Minus', scale: 1.6 },
   { label: '≀', latex: '\\wr', category: 'Operators', tooltip: 'Wreath Product', scale: 1.8 },
   { label: '∐', latex: '\\amalg', category: 'Operators', tooltip: 'Amalgamation/Coproduct', scale: 1.8 },
-  { label: '△', latex: '\\triangle', category: 'Operators', tooltip: 'Symmetric Difference', scale: 1.8 },
-  { label: '▽', latex: '\\triangledown', category: 'Operators', tooltip: 'Triangle Down Operator', scale: 1.8 },
-  { label: '◁', latex: '\\triangleleft', category: 'Operators', tooltip: 'Triangle Left Operator', scale: 1.8 },
-  { label: '▷', latex: '\\triangleright', category: 'Operators', tooltip: 'Triangle Right Operator', scale: 1.8 },
 
   // RELATIONS
   { label: '=', latex: '=', category: 'Relations', tooltip: 'Equal', scale: 1.8 },
@@ -199,6 +196,9 @@ export const LATEX_SYMBOLS = [
   { label: 'ℓ', latex: '\\ell', category: 'Symbols', tooltip: 'Script L', scale: 1.8 },
   { label: '∠', latex: '\\angle', category: 'Symbols', tooltip: 'Angle', scale: 1.8 },
   { label: '△', latex: '\\triangle', category: 'Symbols', tooltip: 'Triangle Symbol', scale: 1.8 },
+  { label: '▽', latex: '\\triangledown', category: 'Symbols', tooltip: 'Triangle Down Operator', scale: 1.8 },
+  { label: '◁', latex: '\\triangleleft', category: 'Symbols', tooltip: 'Triangle Left Operator', scale: 1.8 },
+  { label: '▷', latex: '\\triangleright', category: 'Symbols', tooltip: 'Triangle Right Operator', scale: 1.8 },
   { label: '□', latex: '\\Box', category: 'Symbols', tooltip: 'Square Symbol', scale: 1.8 },
   { label: '⋄', latex: '\\Diamond', category: 'Symbols', tooltip: 'Diamond Symbol', scale: 1.8 },
   { label: '¬', latex: '\\neg', category: 'Symbols', tooltip: 'Logical negation', scale: 2 },
