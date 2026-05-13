@@ -129,7 +129,7 @@ export const LATEX_SYMBOLS = [
   { label: '∈', latex: '\\in', category: 'Relations', tooltip: 'Element of', scale: 1.8 },
   { label: '∋', latex: '\\ni', category: 'Relations', tooltip: 'Contains as element', scale: 1.8 },
   { label: '∉', latex: '\\notin', category: 'Relations', tooltip: 'Not an element of', scale: 1.8 },
-  { label: 'Not ∋', latex: '\\nmid', category: 'Relations', tooltip: 'Not Contains as Element', scale: 1.8 },
+  { label: '∌', latex: '\\nmid', category: 'Relations', tooltip: 'Does not contain of', scale: 1.8 },
   { label: '⊢', latex: '\\vdash', category: 'Relations', tooltip: 'Turnstile / Entails', scale: 1.8 },
   { label: '⊣', latex: '\\dashv', category: 'Relations', tooltip: 'Antiturnstile', scale: 1.8 },
   { label: '≐', latex: '\\doteq', category: 'Relations', tooltip: 'Equal by Definition', scale: 1.8 },
