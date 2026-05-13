@@ -57,7 +57,7 @@ export const TooltipProvider: React.FC< { children: React.ReactNode } > = ( { ch
           ) : (
             <>
               <div className="font-bold whitespace-nowrap">{ tooltip.content.label }</div>
-              <div className="w-full h-px bg-white/10"></div>
+              <div className="w-full h-px bg-white/10" />
               <code className="font-mono whitespace-nowrap text-sky-300">{ tooltip.content.tooltip }</code>
             </>
           ) }
