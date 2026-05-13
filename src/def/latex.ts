@@ -50,6 +50,7 @@ export const LATEX_SYMBOLS = [
   { label: 'sinh', latex: '\\sinh', category: 'Functions', tooltip: 'Hyperbolic Sine', scale: 1.4 },
   { label: 'cosh', latex: '\\cosh', category: 'Functions', tooltip: 'Hyperbolic Cosine', scale: 1.4 },
   { label: 'tanh', latex: '\\tanh', category: 'Functions', tooltip: 'Hyperbolic Tangent', scale: 1.4 },
+  { label: 'coth', latex: '\\coth', category: 'Functions', tooltip: 'Hyperbolic Cotangent', scale: 1.4 },
   { label: 'exp', latex: '\\exp', category: 'Functions', tooltip: 'Exponential function', scale: 1.4 },
   { label: 'max', latex: '\\max', category: 'Functions', tooltip: 'Maximum', scale: 1.4 },
   { label: 'min', latex: '\\min', category: 'Functions', tooltip: 'Minimum', scale: 1.4 },
@@ -63,6 +64,10 @@ export const LATEX_SYMBOLS = [
   { label: 'ker', latex: '\\ker', category: 'Functions', tooltip: 'Kernel', scale: 1.4 },
   { label: 'lg', latex: '\\lg', category: 'Functions', tooltip: 'Binary Logarithm', scale: 1.4 },
   { label: 'Pr', latex: '\\Pr', category: 'Functions', tooltip: 'Probability', scale: 1.4 },
+  { label: 'hom', latex: '\\hom', category: 'Functions', tooltip: 'Homomorphism', scale: 1.4 },
+  { label: 'lim', latex: '\\lim', category: 'Functions', tooltip: 'Limit', scale: 1.4 },
+  { label: 'liminf', latex: '\\liminf', category: 'Functions', tooltip: 'Limit Infimum', scale: 1.2 },
+  { label: 'limsup', latex: '\\limsup', category: 'Functions', tooltip: 'Limit Supremum', scale: 1.2 },
 
   // OPERATORS
   { label: '+', latex: '+', category: 'Operators', tooltip: 'Add', scale: 1.8 },
