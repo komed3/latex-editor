@@ -11,7 +11,8 @@ export const useEditor = () => {
   const [ pan, setPan ] = useState( { x: 0, y: 0 } );
   const [ isPanning, setIsPanning ] = useState( false );
   const [ isExporting, setIsExporting ] = useState( false );
-
+  const [ exportPadding, setExportPadding ] = useState( 0.02 );
+  const [ autoZoom, setAutoZoom ] = useState( true );
   const previewRef = useRef< HTMLDivElement >( null );
 
   // Load from URL Hash
@@ -33,15 +34,16 @@ export const useEditor = () => {
     window.history.replaceState( null, '', `#${ compressed }` );
   }, [ latex ] );
 
-  const handleShare = useCallback(async () => {
+  const handleShare = useCallback( async () => {
     const url = window.location.href;
+
     try {
-      await navigator.clipboard.writeText(url);
-      alert('Sharing link copied to clipboard!');
-    } catch (err) {
-      console.error('Clipboard access failed', err);
+      await navigator.clipboard.writeText( url );
+      alert( 'Sharing link copied to clipboard!' );
+    } catch ( err ) {
+      console.error( 'Clipboard access failed', err );
     }
-  }, []);
+  }, [] );
 
   // Insert LaTeX
   const insertLatex = useCallback( ( symbol: string ) => {
@@ -62,14 +64,34 @@ export const useEditor = () => {
 
   // Export LaTeX as PNG image
   const handleExportImage = useCallback( async () => {
-    if ( ! previewRef.current ) return;
+    const element = previewRef.current;
+    if ( ! element ) return;
+
     setIsExporting( true );
 
     try {
-      const dataUrl = await toPng( previewRef.current, {
+      const nWidth = element.offsetWidth;
+      const nHeight = element.offsetHeight;
+      const padInPx = Math.max( nWidth, nHeight ) * exportPadding + 2;
+      const finalWidth = nWidth + padInPx * 2;
+      const finalHeight = nHeight + padInPx * 2;
+
+      const dataUrl = await toPng( element, {
         backgroundColor: '#ffffff',
         pixelRatio: 4,
-        style: { transform: 'none' }
+        width: Math.ceil( finalWidth ),
+        height: Math.ceil( finalHeight ),
+        style: {
+          boxSizing: 'border-box',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          margin: '0',
+          padding: `${ padInPx }px`,
+          transform: 'none',
+          border: 'none',
+          boxShadow: 'none'
+        }
       } );
 
       const link = document.createElement( 'a' );
@@ -81,18 +103,38 @@ export const useEditor = () => {
     } finally {
       setIsExporting( false );
     }
-  }, [] );
+  }, [ exportPadding ] );
 
   // Export LaTeX as PDF
   const handleExportPDF = useCallback( async () => {
-    if ( ! previewRef.current ) return;
+    const element = previewRef.current;
+    if ( ! element ) return;
+
     setIsExporting( true );
 
     try {
-      const dataUrl = await toPng( previewRef.current, {
+      const nWidth = element.offsetWidth;
+      const nHeight = element.offsetHeight;
+      const padInPx = Math.max( nWidth, nHeight ) * exportPadding + 2;
+      const finalWidth = nWidth + padInPx * 2;
+      const finalHeight = nHeight + padInPx * 2;
+
+      const dataUrl = await toPng( element, {
         backgroundColor: '#ffffff',
         pixelRatio: 4,
-        style: { transform: 'none' }
+        width: Math.ceil( finalWidth ),
+        height: Math.ceil( finalHeight ),
+        style: {
+          boxSizing: 'border-box',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          margin: '0',
+          padding: `${padInPx}px`,
+          transform: 'none',
+          border: 'none',
+          boxShadow: 'none'
+        }
       } );
 
       const img = new Image();
@@ -110,7 +152,6 @@ export const useEditor = () => {
         unit: 'mm',
         format: [ widthMm, heightMm ]
       } );
-
       pdf.addImage( dataUrl, 'PNG', 0, 0, widthMm, heightMm );
       pdf.save( `latex-formula-${ Date.now() }.pdf` );
     } catch ( err ) {
@@ -118,7 +159,7 @@ export const useEditor = () => {
     } finally {
       setIsExporting( false );
     }
-  }, [] );
+  }, [ exportPadding ] );
 
   // Manipulate preview canvas
   const handleWheel = useCallback( ( e: React.WheelEvent ) => {
