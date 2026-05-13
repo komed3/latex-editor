@@ -1,11 +1,31 @@
 import { Copy } from 'lucide-react';
-import { highlight, languages } from 'prismjs';
+import { highlight } from 'prismjs';
 import 'prismjs/components/prism-latex';
 import type React from 'react';
 import RawEditor from 'react-simple-code-editor';
 
 // Fix for CommonJS/ESM interop issues in some environments
 const EditorComponent = ( RawEditor as any ).default || RawEditor;
+
+// Enhanced LaTeX grammar that doesn't use greedy environment matching and
+// provides more granular tokens for numbers, operators, and symbols.
+const latexGrammar: any = {
+  comment: /%.*/,
+  command: {
+    pattern: /\\[a-z@*]+/i,
+    alias: 'keyword'
+  },
+  operator: /[&=$+\-^/_!|]/,
+  punctuation: /[{}()\[\]]/,
+  number: /\b\d+(?:\.\d+)?\b/,
+  symbol: {
+    pattern: /\\(?:alpha|beta|gamma|delta|epsilon|zeta|eta|theta|kappa|lambda|mu|nu|xi|pi|rho|sigma|tau|phi|chi|psi|omega|Gamma|Delta|Theta|Lambda|Xi|Pi|Sigma|Upsilon|Phi|Psi|Omega|to|infty|sqrt|sum|int|prod|lim|sin|cos|tan)\b/i,
+    alias: 'symbol'
+  },
+  variable: {
+    pattern: /\b[a-zA-Z]{1,}\b/
+  }
+};
 
 interface EditorProps {
   latex: string;
@@ -28,7 +48,7 @@ export const Editor: React.FC< EditorProps > = ( { latex, setLatex } ) => {
         <EditorComponent
           value={ latex }
           onValueChange={ setLatex }
-          highlight={ ( code: any ) => highlight( code, languages.latex || languages.plain, 'latex' ) }
+          highlight={ ( code: any ) => highlight( code, latexGrammar, 'latex' ) }
           padding={ 20 }
           className="min-h-full font-mono text-sm leading-relaxed outline-none"
           textareaId="latex-editor-textarea"
