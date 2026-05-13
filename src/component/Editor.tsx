@@ -44,20 +44,19 @@ export const Editor: React.FC< EditorProps > = ( { latex, setLatex } ) => {
           className="flex items-center gap-1.5 hover:text-[#2b579a] cursor-pointer transition-colors"
         ><Copy size={ 12 } /> <span className="hidden sm:inline">Copy to Clipboard</span></button>
       </div>
-      <div className="flex-1 min-h-30 overflow-auto bg-white">
+      <div className="flex-1 overflow-auto bg-white no-scrollbar">
         <EditorComponent
           value={ latex }
           onValueChange={ setLatex }
           highlight={ ( code: any ) => highlight( code, latexGrammar, 'latex' ) }
           padding={ 20 }
-          className="min-h-full font-mono text-sm leading-relaxed outline-none"
+          className="latex-editor"
           textareaId="latex-editor-textarea"
           textareaClassName="outline-none"
           style={ {
             fontFamily: '"FiraCode", monospace',
             fontSize: 14,
-            width: '100%',
-            height: '100%'
+            minHeight: '100%'
           } }
         />
       </div>
