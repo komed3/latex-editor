@@ -1,5 +1,7 @@
+import { useState } from 'react';
 import { Editor } from './component/Editor';
 import { Footer } from './component/Footer';
+import { InfoModal } from './component/InfoModal';
 import { Preview } from './component/Preview';
 import { Ribbon } from './component/Ribbon';
 import { TooltipProvider } from './component/Tooltip';
@@ -7,6 +9,7 @@ import { useEditor } from './hook/useEditor';
 
 export default function App () {
   const E = useEditor();
+  const [ isInfoOpen, setIsInfoOpen ] = useState( false );
 
   return (
     <TooltipProvider>
@@ -17,6 +20,7 @@ export default function App () {
           onExportPNG={ E.handleExportImage }
           onExportPDF={ E.handleExportPDF }
           onShare={ E.handleShare }
+          onInfo={ () => setIsInfoOpen( true ) }
         />
         <main className="flex-1 flex flex-col overflow-hidden">
           <Editor
@@ -33,6 +37,11 @@ export default function App () {
         <Footer
           length={ E.latex.length }
           isExporting={ E.isExporting }
+        />
+
+        <InfoModal
+          isOpen={ isInfoOpen }
+          onClose={ () => setIsInfoOpen( false ) }
         />
       </div>
     </TooltipProvider>
