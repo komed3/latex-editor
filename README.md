@@ -20,5 +20,5 @@ A web-based tool for drafting, previewing, and exporting mathematical equations 
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.  
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 (c) 2026 Paul Köhler (komed3). All rights reserved.
