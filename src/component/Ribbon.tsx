@@ -12,6 +12,7 @@ interface RibbonProps {
   onShare: () => void;
   onExportPNG: () => void;
   onExportPDF: () => void;
+  onInfo: () => void;
   searchQuery: string;
   setSearchQuery: ( query: string ) => void;
   exportPadding: number;
@@ -61,7 +62,7 @@ const SymbolButton: React.FC< SButtonProps > = ( { symbol, onClick, onMove, onLe
 );
 
 export const Ribbon: React.FC< RibbonProps > = ( {
-  activeTab, setActiveTab, insertLatex, onClear, onShare, onExportPNG, onExportPDF,
+  activeTab, setActiveTab, insertLatex, onClear, onShare, onExportPNG, onExportPDF, onInfo,
   searchQuery, setSearchQuery, exportPadding, setExportPadding
 } ) => {
   const { showTooltip, hideTooltip } = useTooltip();
@@ -101,11 +102,17 @@ export const Ribbon: React.FC< RibbonProps > = ( {
             " />
           </div>
         </div>
-        <button className="flex items-center gap-2 h-6.5 px-2.5 text-xs font-bold text-[#323130] bg-white rounded cursor-pointer">
+        <button onClick={ onInfo } className="
+          flex items-center gap-2 h-6.5 px-2.5 text-xs font-bold text-[#323130] bg-white hover:bg-[#edebe9]
+          rounded cursor-pointer transition-colors
+        ">
           <Info size={ 14 } strokeWidth={ 3 } />
           Info
         </button>
-        <a href="https://ko-fi.com/komed3" target="_blank" className="flex items-center gap-2 h-6.5 px-2.5 text-xs font-bold text-[#323130] bg-white rounded">
+        <a href="https://ko-fi.com/komed3" target="_blank" className="
+          flex items-center gap-2 h-6.5 px-2.5 text-xs font-bold text-[#323130] bg-white hover:bg-[#edebe9]
+          rounded cursor-pointer transition-colors
+        ">
           <Heart size={ 14 } strokeWidth={ 3 } />
           Donate
         </a>
