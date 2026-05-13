@@ -14,6 +14,8 @@ interface RibbonProps {
   onExportPDF: () => void;
   searchQuery: string;
   setSearchQuery: ( query: string ) => void;
+  exportPadding: number;
+  setExportPadding: ( val: number ) => void;
 }
 
 interface AButtonProps {
@@ -59,8 +61,8 @@ const SymbolButton: React.FC< SButtonProps > = ( { symbol, onClick, onMove, onLe
 );
 
 export const Ribbon: React.FC< RibbonProps > = ( {
-  activeTab, setActiveTab, insertLatex, onClear, onShare, onExportPNG,
-  onExportPDF, searchQuery, setSearchQuery
+  activeTab, setActiveTab, insertLatex, onClear, onShare, onExportPNG, onExportPDF,
+  searchQuery, setSearchQuery, exportPadding, setExportPadding
 } ) => {
   const { showTooltip, hideTooltip } = useTooltip();
   const handleMouseMove = ( e: React.MouseEvent, content: any ) => {
@@ -122,6 +124,18 @@ export const Ribbon: React.FC< RibbonProps > = ( {
         </div>
         <div className="flex-1" />
         <div className="flex gap-1 py-1 pr-1">
+          <div className="flex items-center gap-1.5 mr-2 px-2 py-1 text-[10px] text-[#323130] bg-[#f3f2f1] border border-[#e1dfdd] rounded">
+            <span className="font-semibold opacity-60">Padding:</span>
+            <select value={ exportPadding } onChange={ ( e ) => setExportPadding( Number( e.target.value ) ) } className="
+              font-bold hover:text-[#2b579a] bg-transparent outline-none cursor-pointer
+            ">
+              <option value="0">0% (None)</option>
+              <option value="0.02">2% (Tight)</option>
+              <option value="0.05">5% (Minimal)</option>
+              <option value="0.08">8% (Balanced)</option>
+              <option value="0.12">12% (Large)</option>
+            </select>
+          </div>
           <ActionButton
             onClick={ onClear } icon={ <Trash2 size={ 16 } />} label="Clear All Data" colorClass="text-[#d13438]"
             onMove={ handleMouseMove } onLeave={ hideTooltip }
