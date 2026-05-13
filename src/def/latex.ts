@@ -44,6 +44,8 @@ export const LATEX_SYMBOLS = [
   { label: '⨂', latex: '\\bigotimes_{i=1}^{n}', category: 'Functions', tooltip: 'Big O-Times: \\bigotimes', scale: 1.2 },
   { label: '∐', latex: '\\coprod_{i=1}^{n}', category: 'Functions', tooltip: 'Coproduct: \\coprod', scale: 1.2 },
   { label: '⨆', latex: '\\bigsqcup_{i=1}^{n}', category: 'Functions', tooltip: 'Big Square Cup: \\bigsqcup', scale: 1.2 },
+  { label: 'nCr', latex: '\\mathrm{C}_{n}^{k}', category: 'Functions', tooltip: 'Combination: nCr', scale: 1.4 },
+  { label: 'binom', latex: '\\binom{n}{k}', category: 'Functions', tooltip: 'Binomial Coefficient: \\binom', scale: 1.4 },
   { label: 'Partial', latex: '\\partial', category: 'Functions', tooltip: 'Partial: \\partial', scale: 1.8 },
   { label: 'Derivative', latex: '\\frac{d }{dx}', category: 'Functions', tooltip: 'Derivative: \\frac{d }{dx}', scale: 1.6 },
   { label: 'Partial Deriv', latex: '\\frac{\\partial }{\\partial x}', category: 'Functions', tooltip: 'Partial Derivative: \\frac{\\partial }{\\partial x}', scale: 1.6 },
@@ -223,7 +225,7 @@ export const LATEX_SYMBOLS = [
   { label: '{ }', latex: '\\left\\{ x \\right\\}', category: 'Brackets', tooltip: 'Dynamic Braces', scale: 1.6 },
   { label: '| |', latex: '\\left| x \\right|', category: 'Brackets', tooltip: 'Dynamic Absolute Value / Norm', scale: 1.6 },
   { label: '‖ ‖', latex: '\\left\\| x \\right\\|', category: 'Brackets', tooltip: 'Dynamic Double Norm', scale: 1.6 },
-  { label: '⟨ ⟩', latex: '\\langle x \\rangle', category: 'Brackets', tooltip: 'Angle Brackets', scale: 1.6 },
+  { label: '⟨ ⟩', latex: '\\left\\langle x \\right\\rangle', category: 'Brackets', tooltip: 'Dynamic Angle Brackets', scale: 1.6 },
   { label: '⌈ ⌉', latex: '\\lceil x \\rceil', category: 'Brackets', tooltip: 'Ceiling Brackets', scale: 1.6 },
   { label: '⌊ ⌋', latex: '\\lfloor x \\rfloor', category: 'Brackets', tooltip: 'Floor Brackets', scale: 1.6 },
 
@@ -351,5 +353,9 @@ export const LATEX_SYMBOLS = [
   { label: 'overbrace', latex: '\\overbrace{abc}', category: 'Accents', tooltip: 'Overbrace', scale: 1.4 },
   { label: 'underbrace', latex: '\\underbrace{abc}', category: 'Accents', tooltip: 'Underbrace', scale: 1.4 },
   { label: 'widehat', latex: '\\widehat{xyz}', category: 'Accents', tooltip: 'Wide Hat', scale: 1.6 },
-  { label: 'widetilde', latex: '\\widetilde{xyz}', category: 'Accents', tooltip: 'Wide Tilde', scale: 1.6 }
+  { label: 'widetilde', latex: '\\widetilde{xyz}', category: 'Accents', tooltip: 'Wide Tilde', scale: 1.6 },
+  { label: 'vec arrow', latex: '\\overrightarrow{abc}', category: 'Accents', tooltip: 'Over Right Arrow', scale: 1.4 },
+  { label: 'under arrow', latex: '\\underrightarrow{abc}', category: 'Accents', tooltip: 'Under Right Arrow', scale: 1.4 },
+  { label: 'overset', latex: '\\overset{abc}{AB}', category: 'Accents', tooltip: 'Overset Symbol', scale: 1.4 },
+  { label: 'underset', latex: '\\underset{abc}{AB}', category: 'Accents', tooltip: 'Underset Symbol', scale: 1.4 }
 ] as const satisfies LaTeXSymbol[];
