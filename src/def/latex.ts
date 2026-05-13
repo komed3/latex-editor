@@ -121,12 +121,15 @@ export const LATEX_SYMBOLS = [
   { label: 'Not ⊆', latex: '\\nsubseteq', category: 'Relations', tooltip: 'Not Subset or Equal', scale: 1.8 },
   { label: 'Not ⊇', latex: '\\nsupseteq', category: 'Relations', tooltip: 'Not Superset or Equal', scale: 1.8 },
   { label: '≡', latex: '\\equiv', category: 'Relations', tooltip: 'Equivalent/Identical', scale: 1.8 },
+  { label: 'Not ≡', latex: '\\not\\equiv', category: 'Relations', tooltip: 'Not Equivalent/Identical', scale: 1.8 },
   { label: '∼', latex: '\\sim', category: 'Relations', tooltip: 'Similar/Tilde', scale: 1.8 },
+  { label: '≁', latex: '\\nsim', category: 'Relations', tooltip: 'Not Similar', scale: 1.8 },
   { label: '≃', latex: '\\simeq', category: 'Relations', tooltip: 'Asymptotically Equal', scale: 1.8 },
   { label: '≈', latex: '\\approx', category: 'Relations', tooltip: 'Approximately Equal', scale: 1.8 },
   { label: '≲', latex: '\\lesssim', category: 'Relations', tooltip: 'Less Than or Similar', scale: 1.8 },
   { label: '≳', latex: '\\gtrsim', category: 'Relations', tooltip: 'Greater Than or Similar', scale: 1.8 },
   { label: '≅', latex: '\\cong', category: 'Relations', tooltip: 'Congruent', scale: 1.8 },
+  { label: '≇', latex: '\\ncong', category: 'Relations', tooltip: 'Not Congruent', scale: 1.8 },
   { label: '∝', latex: '\\propto', category: 'Relations', tooltip: 'Proportional', scale: 1.8 },
   { label: '⊂', latex: '\\subset', category: 'Relations', tooltip: 'Proper Subset', scale: 1.8 },
   { label: '⊃', latex: '\\supset', category: 'Relations', tooltip: 'Proper Superset', scale: 1.8 },
@@ -137,6 +140,7 @@ export const LATEX_SYMBOLS = [
   { label: '∉', latex: '\\notin', category: 'Relations', tooltip: 'Not an element of', scale: 1.8 },
   { label: '⊢', latex: '\\vdash', category: 'Relations', tooltip: 'Turnstile / Entails', scale: 1.8 },
   { label: '⊣', latex: '\\dashv', category: 'Relations', tooltip: 'Antiturnstile', scale: 1.8 },
+  { label: '⊨', latex: '\\models', category: 'Relations', tooltip: 'Models / Entails', scale: 1.8 },
   { label: '≐', latex: '\\doteq', category: 'Relations', tooltip: 'Equal by Definition', scale: 1.8 },
   { label: '⊥', latex: '\\perp', category: 'Relations', tooltip: 'Perpendicular', scale: 1.8 },
   { label: '∥', latex: '\\parallel', category: 'Relations', tooltip: 'Parallel', scale: 1.8 },
@@ -153,6 +157,7 @@ export const LATEX_SYMBOLS = [
   { label: '⌣', latex: '\\smile', category: 'Relations', tooltip: 'Smile Relation', scale: 1.8 },
   { label: '⌢', latex: '\\frown', category: 'Relations', tooltip: 'Frown Relation', scale: 1.8 },
   { label: '≍', latex: '\\asymp', category: 'Relations', tooltip: 'Asymptotically equivalent', scale: 1.8 },
+  { label: '⋈', latex: '\\bowtie', category: 'Relations', tooltip: 'Bowtie Join', scale: 1.8 },
 
   // ARROWS
   { label: '→', latex: '\\to', category: 'Arrows', tooltip: 'Right Arrow / To', scale: 1.8 },
@@ -211,7 +216,12 @@ export const LATEX_SYMBOLS = [
   { label: 'ℵ', latex: '\\aleph', category: 'Symbols', tooltip: 'Aleph', scale: 1.8 },
   { label: 'ℏ', latex: '\\hbar', category: 'Symbols', tooltip: 'Reduced Planck Constant', scale: 1.8 },
   { label: 'ℓ', latex: '\\ell', category: 'Symbols', tooltip: 'Script L', scale: 1.8 },
+  { label: 'ℜ', latex: '\\Re', category: 'Symbols', tooltip: 'Real Part', scale: 1.8 },
+  { label: 'ℑ', latex: '\\Im', category: 'Symbols', tooltip: 'Imaginary Part', scale: 1.8 },
+  { label: 'ı', latex: '\\imath', category: 'Symbols', tooltip: 'Dotless i', scale: 1.8 },
+  { label: 'ȷ', latex: '\\jmath', category: 'Symbols', tooltip: 'Dotless j', scale: 1.8 },
   { label: '∠', latex: '\\angle', category: 'Symbols', tooltip: 'Angle', scale: 1.8 },
+  { label: '∡', latex: '\\measuredangle', category: 'Symbols', tooltip: 'Measured Angle', scale: 1.8 },
   { label: '△', latex: '\\triangle', category: 'Symbols', tooltip: 'Triangle Symbol', scale: 1.8 },
   { label: '▽', latex: '\\triangledown', category: 'Symbols', tooltip: 'Triangle Down Operator', scale: 1.8 },
   { label: '◁', latex: '\\triangleleft', category: 'Symbols', tooltip: 'Triangle Left Operator', scale: 1.8 },
@@ -235,6 +245,9 @@ export const LATEX_SYMBOLS = [
   { label: 'ℤ', latex: '\\mathbb{Z}', category: 'Symbols', tooltip: 'Integers', scale: 1.8 },
   { label: 'ℚ', latex: '\\mathbb{Q}', category: 'Symbols', tooltip: 'Rational Numbers', scale: 1.8 },
   { label: 'ℙ', latex: '\\mathbb{P}', category: 'Symbols', tooltip: 'Prime Numbers / Probability', scale: 1.8 },
+  { label: '⋯', latex: '\\cdots', category: 'Symbols', tooltip: 'Center Dots', scale: 1.8 },
+  { label: '⋮', latex: '\\vdots', category: 'Symbols', tooltip: 'Vertical Dots', scale: 1.8 },
+  { label: '⋱', latex: '\\ddots', category: 'Symbols', tooltip: 'Diagonal Dots', scale: 1.8 },
 
   // FONTS
   { label: 'bb', latex: '\\mathbb{X}', category: 'Fonts', tooltip: 'Blackboard Bold Font: \\mathbb{X}', scale: 1.8 },
@@ -301,6 +314,8 @@ export const LATEX_SYMBOLS = [
   { label: 'gather', latex: '\\begin{gathered} a = b \\\\ c = d \\end{gathered}', category: 'Environments', tooltip: 'Gathered Equations', scale: 0.9 },
 
   // ACCENTS
+  { label: 'acute', latex: '\\acute{x}', category: 'Accents', tooltip: 'Acute', scale: 2 },
+  { label: 'grave', latex: '\\grave{x}', category: 'Accents', tooltip: 'Grave', scale: 2 },
   { label: 'dot', latex: '\\dot{x}', category: 'Accents', tooltip: 'Dot', scale: 2 },
   { label: 'ddot', latex: '\\ddot{x}', category: 'Accents', tooltip: 'Double Dot', scale: 2 },
   { label: 'bar', latex: '\\bar{x}', category: 'Accents', tooltip: 'Bar', scale: 2 },
