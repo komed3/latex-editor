@@ -49,12 +49,12 @@ export const Editor: React.FC< EditorProps > = ( { latex, setLatex } ) => {
           value={ latex }
           onValueChange={ setLatex }
           highlight={ ( code: any ) => highlight( code, latexGrammar, 'latex' ) }
-          padding={ 20 }
+          padding={ 14 }
           className="latex-editor"
           textareaId="latex-editor-textarea"
           textareaClassName="outline-none"
           style={ {
-            fontFamily: '"FiraCode", monospace',
+            fontFamily: '"Fira Code", monospace',
             fontSize: 14,
             minHeight: '100%'
           } }

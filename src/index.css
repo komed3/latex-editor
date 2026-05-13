@@ -34,15 +34,34 @@ body {
   cursor: default;
 }
 
-.token.function, .token.keyword { color: #0056b3; font-weight: 600; }
-.token.punctuation { color: #666; }
-.token.operator { color: #d73a49; }
-.token.string { color: #22863a; }
-.token.comment { color: #6a737d; font-style: italic; }
-
 #root {
   width: 100%;
   height: 100%;
+}
+
+.token.command, .token.keyword { color: #2b579a; }
+.token.parameter { color: #605e5c; }
+.token.punctuation { color: #323130; }
+.token.operator { color: #d13438; font-weight: bold; }
+.token.number { color: #008000; font-weight: bold; }
+.token.string { color: #22863a; }
+.token.symbol { color: #2b579a; }
+.token.variable { color: #323130; }
+.token.comment { color: #605e5c; font-style: italic; }
+.latex-editor textarea,
+
+.latex-editor pre {
+  @apply no-scrollbar;
+  tab-size: 2;
+  white-space: pre-wrap !important;
+  line-height: inherit !important;
+  font-family: inherit !important;
+  font-size: inherit !important;
+  overflow-wrap: break-word !important;
+}
+
+.latex-editor textarea {
+  outline: none !important;
 }
 
 .katex-display {
