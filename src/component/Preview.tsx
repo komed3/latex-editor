@@ -8,33 +8,81 @@ interface PreviewProps {
   zoom: number;
   pan: { x: number; y: number };
   isPanning: boolean;
+  isExporting: boolean;
+  exportPadding: number;
+  autoZoom: boolean;
   previewRef: React.RefObject< HTMLDivElement | null >;
   onWheel: ( e: React.WheelEvent ) => void;
   onMouseDown: ( e: React.MouseEvent ) => void;
   setZoom: ( val: ( prev: number ) => number ) => void;
   resetView: () => void;
+  setAutoZoom: ( val: boolean ) => void;
 }
 
 export const Preview: React.FC< PreviewProps > = memo( ( {
-  latex, zoom, pan, isPanning, previewRef, onWheel, onMouseDown, setZoom, resetView
+  latex, zoom, pan, isPanning, isExporting, exportPadding, autoZoom, previewRef,
+  onWheel, onMouseDown, setZoom, resetView, setAutoZoom
 } ) => {
   const contentRef = useRef< HTMLDivElement >( null );
-  const [ autoScale, setAutoScale ] = useState( 1 );
+  const containerRef = useRef< HTMLDivElement >( null );
+  const [ internalScale, setInternalScale ] = useState( 1 );
+  const [ contentDims, setContentDims ] = useState( { w: 0, h: 0 } );
   const { showTooltip, hideTooltip } = useTooltip();
 
   useEffect( () => {
-    if ( contentRef.current ) {
-      const containerWidth = 800;
-      const contentWidth = contentRef.current.scrollWidth;
+    const updateScale = () => {
+      if ( contentRef.current && containerRef.current ) {
+        const cWidth = contentRef.current.scrollWidth;
+        const cHeight = contentRef.current.scrollHeight;
+        setContentDims( { w: cWidth, h: cHeight } );
 
-      if ( contentWidth > containerWidth ) setAutoScale( containerWidth / contentWidth );
-      else setAutoScale( 1 );
-    }
-  }, [ latex ] );
+        if ( autoZoom ) {
+          if ( cWidth === 0 || cHeight === 0 ) return;
+
+          // Calculate equal padding based on the larger dimension
+          const paddingInPx = Math.max( cWidth, cHeight ) * exportPadding + 2;
+          const targetW = cWidth + paddingInPx * 2;
+          const targetH = cHeight + paddingInPx * 2;
+          const containerWidth = containerRef.current.clientWidth - 40;
+          const containerHeight = containerRef.current.clientHeight - 40;
+          const scaleX = containerWidth / targetW;
+          const scaleY = containerHeight / targetH;
+          const scale = Math.min( scaleX, scaleY, 4 );
+
+          setInternalScale( Math.max( 0.1, scale ) );
+        } else if ( ! autoZoom ) {
+          setInternalScale( 1 );
+        }
+      }
+    };
+
+    updateScale();
+
+    const timer = setTimeout( updateScale, 100 );
+    window.addEventListener( 'resize', updateScale );
+    return () => {
+      window.removeEventListener( 'resize', updateScale );
+      clearTimeout( timer );
+    };
+  }, [ latex, autoZoom, exportPadding ] );
 
   const handleMouseMove = ( e: React.MouseEvent, label: string ) => {
     showTooltip( label, e.clientX, e.clientY );
   };
+
+  const currentZoom = autoZoom ? internalScale : zoom;
+
+  // Calculate guide line positions
+  const containerWidth = containerRef.current?.clientWidth || 0;
+  const containerHeight = containerRef.current?.clientHeight || 0;
+  const centerX = containerWidth / 2 + pan.x;
+  const centerY = containerHeight / 2 + pan.y;
+  const currentPadding = Math.max( contentDims.w, contentDims.h ) * exportPadding + 2;
+
+  const edgeL = centerX - ( contentDims.w / 2 + currentPadding ) * currentZoom;
+  const edgeR = centerX + ( contentDims.w / 2 + currentPadding ) * currentZoom;
+  const edgeT = centerY - ( contentDims.h / 2 + currentPadding ) * currentZoom;
+  const edgeB = centerY + ( contentDims.h / 2 + currentPadding ) * currentZoom;
 
   return (
     <div className="relative flex-1 flex flex-col bg-[#edebe9] overflow-hidden select-none touch-none">
@@ -80,7 +128,7 @@ export const Preview: React.FC< PreviewProps > = memo( ( {
           ">
             <div
               ref={ contentRef }
-              style={ { transform: `scale(${ autoScale })`, transformOrigin: 'center' } }
+              style={ { transform: `scale(${ 1 })`, transformOrigin: 'center' } }
               className="text-[80px] transition-all duration-300 opacity-100"
               dangerouslySetInnerHTML={ {
                 __html: katex.renderToString( latex, { displayMode: true, throwOnError: false } )
