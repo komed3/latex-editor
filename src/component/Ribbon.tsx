@@ -1,5 +1,5 @@
 import katex from 'katex';
-import { FileText, Heart, ImageIcon, Search, Share2, Sigma, Trash2 } from 'lucide-react';
+import { FileText, Heart, ImageIcon, Info, Search, Share2, Sigma, Trash2 } from 'lucide-react';
 import type React from 'react';
 import { LATEX_CATEGORIES, LATEX_SYMBOLS, type LaTeXSymbol } from '../def/latex';
 import { useTooltip } from './Tooltip';
@@ -101,20 +101,24 @@ export const Ribbon: React.FC< RibbonProps > = ( {
             " />
           </div>
         </div>
-        <a href="https://ko-fi.com/komed3" target="_blank" className="flex items-center gap-2 py-1 px-2.5 text-xs font-bold text-[#323130] bg-white rounded">
+        <button className="flex items-center gap-2 h-6.5 px-2.5 text-xs font-bold text-[#323130] bg-white rounded cursor-pointer">
+          <Info size={ 14 } strokeWidth={ 3 } />
+          Info
+        </button>
+        <a href="https://ko-fi.com/komed3" target="_blank" className="flex items-center gap-2 h-6.5 px-2.5 text-xs font-bold text-[#323130] bg-white rounded">
           <Heart size={ 14 } strokeWidth={ 3 } />
           Donate
         </a>
       </div>
 
       {/** Category tabs */}
-      <div className="flex items-end h-9 px-2 bg-white border-b border-[#e1dfdd]">
+      <div className="flex items-end h-9 px-3 bg-white border-b border-[#e1dfdd]">
         <div className="flex items-end gap-1 h-full">
           { LATEX_CATEGORIES.map( cat => (
             <button key={ cat } onClick={
               () => { setActiveTab( cat ), setSearchQuery( '' ) }
             } className={
-              `flex items-center shrink-0 h-[85%] px-4 text-xs font-medium rounded-t border-t border-x transition-colors cursor-pointer ${
+              `flex items-center shrink-0 h-[85%] px-3 text-xs font-medium rounded-t border-t border-x transition-colors cursor-pointer ${
                 activeTab === cat && ! searchQuery
                   ? "text-[#2b579a] bg-[#f3f2f1] border-[#e1dfdd] shadow-[0_1px_0_#f3f2f1]"
                   : "text-[#323130] bg-transparent hover:bg-[#f3f2f1] border-transparent"
