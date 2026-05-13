@@ -97,6 +97,7 @@ export const LATEX_SYMBOLS = [
   { label: '⊓', latex: '\\sqcap', category: 'Operators', tooltip: 'Square Cap', scale: 1.8 },
   { label: '⊔', latex: '\\sqcup', category: 'Operators', tooltip: 'Square Cup', scale: 1.8 },
   { label: '∖', latex: '\\setminus', category: 'Operators', tooltip: 'Set Minus', scale: 1.6 },
+  { label: '∖', latex: '\\smallsetminus', category: 'Operators', tooltip: 'Small Set Minus', scale: 1.6 },
   { label: '≀', latex: '\\wr', category: 'Operators', tooltip: 'Wreath Product', scale: 1.8 },
   { label: '∐', latex: '\\amalg', category: 'Operators', tooltip: 'Amalgamation/Coproduct', scale: 1.8 },
 
@@ -209,6 +210,9 @@ export const LATEX_SYMBOLS = [
   { label: '∵', latex: '\\because', category: 'Symbols', tooltip: 'Because', scale: 2 },
   { label: '⊤', latex: '\\top', category: 'Symbols', tooltip: 'Top Symbol / Tautology', scale: 1.8 },
   { label: '⊥', latex: '\\bot', category: 'Symbols', tooltip: 'Bottom Symbol / Contradiction', scale: 1.8 },
+  { label: '#', latex: '\\#', category: 'Symbols', tooltip: 'Hash Symbol', scale: 1.8 },
+  { label: '|', latex: '|', category: 'Symbols', tooltip: 'Pipe', scale: 1.6 },
+  { label: '∤', latex: '\\nmid', category: 'Symbols', tooltip: 'Not Divide', scale: 1.6 },
   { label: 'ℝ', latex: '\\mathbb{R}', category: 'Symbols', tooltip: 'Real Numbers', scale: 1.8 },
   { label: 'ℂ', latex: '\\mathbb{C}', category: 'Symbols', tooltip: 'Complex Numbers', scale: 1.8 },
   { label: 'ℕ', latex: '\\mathbb{N}', category: 'Symbols', tooltip: 'Natural Numbers', scale: 1.8 },
