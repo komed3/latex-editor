@@ -163,19 +163,24 @@ export const useEditor = () => {
 
   // Manipulate preview canvas
   const handleWheel = useCallback( ( e: React.WheelEvent ) => {
-    const delta = e.deltaY > 0 ? 0.9 : 1.1;
-    setZoom( prev => Math.min( Math.max( prev * delta, 0.1 ), 5 ) );
     e.preventDefault();
+
+    const delta = e.deltaY > 0 ? 0.9 : 1.1;
+    setZoom( z => z * delta );
+    setAutoZoom( false );
   }, [] );
 
   const handleMouseDown = useCallback( ( e: React.MouseEvent ) => {
+    e.preventDefault();
+
     if ( e.button === 0 || e.button === 1 ) {
       setIsPanning( true );
-      e.preventDefault();
     }
   }, [] );
 
   const handleMouseMove = useCallback( ( e: MouseEvent ) => {
+    e.preventDefault();
+
     if ( ! isPanning ) return;
     setPan( prev => ( {
       x: prev.x + e.movementX,
@@ -183,7 +188,8 @@ export const useEditor = () => {
     } ) );
   }, [ isPanning ] );
 
-  const handleMouseUp = useCallback( () => {
+  const handleMouseUp = useCallback( ( e: MouseEvent ) => {
+    e.preventDefault();
     setIsPanning( false );
   }, [] );
 
@@ -208,7 +214,8 @@ export const useEditor = () => {
   return {
     latex, setLatex, activeTab, setActiveTab, searchQuery,
     setSearchQuery, zoom, setZoom, pan, setPan, isPanning,
-    isExporting, previewRef, insertLatex, handleShare,
+    isExporting, exportPadding, setExportPadding, autoZoom,
+    setAutoZoom, previewRef, insertLatex, handleShare,
     handleExportImage, handleExportPDF, handleWheel,
     handleMouseDown, resetView
   };
