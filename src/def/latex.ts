@@ -21,6 +21,8 @@ export const LATEX_CATEGORIES = [
 ];
 
 export const LATEX_SYMBOLS = [
+  // --- FUNCTIONS ---
+
   // --- FUNCTIONS: ARITHMETIC & ROOTS ---
   { label: 'Fraction', latex: '\\frac{a}{b}', category: 'Functions', tooltip: 'Fraction', scale: 1.6 },
   { label: 'd-Frac', latex: '\\dfrac{a}{b}', category: 'Functions', tooltip: 'Display Fraction', scale: 1.2 },
@@ -127,6 +129,8 @@ export const LATEX_SYMBOLS = [
   { label: 'op', latex: '\\operatorname{f}', category: 'Functions', tooltip: 'Custom Operator', scale: 1.4 },
 
 
+  // --- OPERATORS ---
+
   // --- OPERATORS: STANDARD ARITHMETIC ---
   { label: '+', latex: '+', category: 'Operators', tooltip: 'Add', scale: 2 },
   { label: '-', latex: '-', category: 'Operators', tooltip: 'Subtract', scale: 2 },
@@ -208,6 +212,8 @@ export const LATEX_SYMBOLS = [
   { label: '⋋', latex: '\\leftthreetimes', category: 'Operators', tooltip: 'Left Three Times', scale: 2 },
   { label: '⋌', latex: '\\rightthreetimes', category: 'Operators', tooltip: 'Right Three Times', scale: 2 },
 
+
+  // --- RELATIONS ---
 
   // --- RELATIONS: EQUALITY & SIMILARITY ---
   { label: '=', latex: '=', category: 'Relations', tooltip: 'Equal', scale: 2 },
@@ -347,6 +353,8 @@ export const LATEX_SYMBOLS = [
   { label: 'stackrel', latex: '\\stackrel{!}{=}', category: 'Relations', tooltip: 'Shall be equal', scale: 1.8 },
 
 
+  // --- ARROWS ---
+
   // --- ARROWS: STANDARD ---
   { label: '→', latex: '\\to', category: 'Arrows', tooltip: 'Right Arrow', scale: 1.8 },
   { label: '←', latex: '\\gets', category: 'Arrows', tooltip: 'Left Arrow', scale: 1.8 },
@@ -453,6 +461,7 @@ export const LATEX_SYMBOLS = [
 
 
   // --- BRACKETS ---
+
   { label: '( )', latex: '\\left( x \\right)', category: 'Brackets', tooltip: 'Parentheses', scale: 1.6 },
   { label: '[ ]', latex: '\\left[ x \\right]', category: 'Brackets', tooltip: 'Square Brackets', scale: 1.6 },
   { label: '{ }', latex: '\\left\\{ x \\right\\}', category: 'Brackets', tooltip: 'Curly Braces', scale: 1.6 },
@@ -478,6 +487,7 @@ export const LATEX_SYMBOLS = [
 
 
   // --- SYMBOLS ---
+
   { label: '∞', latex: '\\infty', category: 'Symbols', tooltip: 'Infinity', scale: 1.8 },
   { label: '∇', latex: '\\nabla', category: 'Symbols', tooltip: 'Nabla / Gradient', scale: 1.8 },
   { label: '∀', latex: '\\forall', category: 'Symbols', tooltip: 'For All', scale: 1.8 },
@@ -528,12 +538,15 @@ export const LATEX_SYMBOLS = [
   { label: '°', latex: '^{\\circ}', category: 'Symbols', tooltip: 'Degree', scale: 1.8 },
   { label: '✓', latex: '\\checkmark', category: 'Symbols', tooltip: 'Checkmark', scale: 1.8 },
 
+
   // --- GREEK ---
+
+  // --- GREEK: LOWERCASE ---
   { label: 'α', latex: '\\alpha', category: 'Greek', tooltip: 'alpha', scale: 2 },
   { label: 'β', latex: '\\beta', category: 'Greek', tooltip: 'beta', scale: 2 },
   { label: 'γ', latex: '\\gamma', category: 'Greek', tooltip: 'gamma', scale: 2 },
   { label: 'δ', latex: '\\delta', category: 'Greek', tooltip: 'delta', scale: 2 },
-  { label: 'ε', latex: '\\epsilon', category: 'Greek', tooltip: 'epsilon', scale: 2 },
+  { label: 'ϵ', latex: '\\epsilon', category: 'Greek', tooltip: 'epsilon', scale: 2 },
   { label: 'ζ', latex: '\\zeta', category: 'Greek', tooltip: 'zeta', scale: 2 },
   { label: 'η', latex: '\\eta', category: 'Greek', tooltip: 'eta', scale: 2 },
   { label: 'θ', latex: '\\theta', category: 'Greek', tooltip: 'theta', scale: 2 },
@@ -543,33 +556,70 @@ export const LATEX_SYMBOLS = [
   { label: 'μ', latex: '\\mu', category: 'Greek', tooltip: 'mu', scale: 2 },
   { label: 'ν', latex: '\\nu', category: 'Greek', tooltip: 'nu', scale: 2 },
   { label: 'ξ', latex: '\\xi', category: 'Greek', tooltip: 'xi', scale: 2 },
+  { label: 'ο', latex: '\\omicron', category: 'Greek', tooltip: 'omicron', scale: 2 },
   { label: 'π', latex: '\\pi', category: 'Greek', tooltip: 'pi', scale: 2 },
   { label: 'ρ', latex: '\\rho', category: 'Greek', tooltip: 'rho', scale: 2 },
   { label: 'σ', latex: '\\sigma', category: 'Greek', tooltip: 'sigma', scale: 2 },
   { label: 'τ', latex: '\\tau', category: 'Greek', tooltip: 'tau', scale: 2 },
   { label: 'υ', latex: '\\upsilon', category: 'Greek', tooltip: 'upsilon', scale: 2 },
-  { label: 'φ', latex: '\\phi', category: 'Greek', tooltip: 'phi', scale: 2 },
+  { label: 'ϕ', latex: '\\phi', category: 'Greek', tooltip: 'phi', scale: 2 },
   { label: 'χ', latex: '\\chi', category: 'Greek', tooltip: 'chi', scale: 2 },
   { label: 'ψ', latex: '\\psi', category: 'Greek', tooltip: 'psi', scale: 2 },
   { label: 'ω', latex: '\\omega', category: 'Greek', tooltip: 'omega', scale: 2 },
+
+  // --- GREEK: VARIANT LOWERCASE ---
   { label: 'ε', latex: '\\varepsilon', category: 'Greek', tooltip: 'varepsilon', scale: 2 },
   { label: 'ϑ', latex: '\\vartheta', category: 'Greek', tooltip: 'vartheta', scale: 2 },
+  { label: 'ϑ', latex: '\\thetasym', category: 'Greek', tooltip: 'thetasym', scale: 2 },
   { label: 'ϕ', latex: '\\varphi', category: 'Greek', tooltip: 'varphi', scale: 2 },
   { label: 'ϖ', latex: '\\varpi', category: 'Greek', tooltip: 'varpi', scale: 2 },
   { label: 'ϱ', latex: '\\varrho', category: 'Greek', tooltip: 'varrho', scale: 2 },
   { label: 'ς', latex: '\\varsigma', category: 'Greek', tooltip: 'varsigma', scale: 2 },
+  { label: 'ϰ', latex: '\\varkappa', category: 'Greek', tooltip: 'varkappa', scale: 2 },
+  { label: 'ϝ', latex: '\\digamma', category: 'Greek', tooltip: 'digamma', scale: 2 },
+
+  // --- GREEK: UPPERCASE ---
+  { label: 'Α', latex: '\\Alpha', category: 'Greek', tooltip: 'Alpha', scale: 2 },
+  { label: 'Β', latex: '\\Beta', category: 'Greek', tooltip: 'Beta', scale: 2 },
   { label: 'Γ', latex: '\\Gamma', category: 'Greek', tooltip: 'Gamma', scale: 2 },
   { label: 'Δ', latex: '\\Delta', category: 'Greek', tooltip: 'Delta', scale: 2 },
+  { label: 'Ε', latex: '\\Epsilon', category: 'Greek', tooltip: 'Epsilon', scale: 2 },
+  { label: 'Ζ', latex: '\\Zeta', category: 'Greek', tooltip: 'Zeta', scale: 2 },
+  { label: 'Η', latex: '\\Eta', category: 'Greek', tooltip: 'Eta', scale: 2 },
   { label: 'Θ', latex: '\\Theta', category: 'Greek', tooltip: 'Theta', scale: 2 },
+  { label: 'Ι', latex: '\\Iota', category: 'Greek', tooltip: 'Iota', scale: 2 },
+  { label: 'Κ', latex: '\\Kappa', category: 'Greek', tooltip: 'Kappa', scale: 2 },
   { label: 'Λ', latex: '\\Lambda', category: 'Greek', tooltip: 'Lambda', scale: 2 },
+  { label: 'Μ', latex: '\\Mu', category: 'Greek', tooltip: 'Mu', scale: 2 },
+  { label: 'Ν', latex: '\\Nu', category: 'Greek', tooltip: 'Nu', scale: 2 },
   { label: 'Ξ', latex: '\\Xi', category: 'Greek', tooltip: 'Xi', scale: 2 },
+  { label: 'Ο', latex: '\\Omicron', category: 'Greek', tooltip: 'Omicron', scale: 2 },
   { label: 'Π', latex: '\\Pi', category: 'Greek', tooltip: 'Pi', scale: 2 },
+  { label: 'Ρ', latex: '\\Rho', category: 'Greek', tooltip: 'Rho', scale: 2 },
   { label: 'Σ', latex: '\\Sigma', category: 'Greek', tooltip: 'Sigma', scale: 2 },
+  { label: 'Τ', latex: '\\Tau', category: 'Greek', tooltip: 'Tau', scale: 2 },
+  { label: 'Υ', latex: '\\Upsilon', category: 'Greek', tooltip: 'Upsilon', scale: 2 },
   { label: 'Φ', latex: '\\Phi', category: 'Greek', tooltip: 'Phi', scale: 2 },
+  { label: 'Χ', latex: '\\Chi', category: 'Greek', tooltip: 'Chi', scale: 2 },
   { label: 'Ψ', latex: '\\Psi', category: 'Greek', tooltip: 'Psi', scale: 2 },
   { label: 'Ω', latex: '\\Omega', category: 'Greek', tooltip: 'Omega', scale: 2 },
 
+  // --- GREEK: VARIANT UPPERCASE (ITALIC) ---
+  { label: 'Γ', latex: '\\varGamma', category: 'Greek', tooltip: 'varGamma', scale: 2 },
+  { label: 'Δ', latex: '\\varDelta', category: 'Greek', tooltip: 'varDelta', scale: 2 },
+  { label: 'Θ', latex: '\\varTheta', category: 'Greek', tooltip: 'varTheta', scale: 2 },
+  { label: 'Λ', latex: '\\varLambda', category: 'Greek', tooltip: 'varLambda', scale: 2 },
+  { label: 'Ξ', latex: '\\varXi', category: 'Greek', tooltip: 'varXi', scale: 2 },
+  { label: 'Π', latex: '\\varPi', category: 'Greek', tooltip: 'varPi', scale: 2 },
+  { label: 'Σ', latex: '\\varSigma', category: 'Greek', tooltip: 'varSigma', scale: 2 },
+  { label: 'Υ', latex: '\\varUpsilon', category: 'Greek', tooltip: 'varUpsilon', scale: 2 },
+  { label: 'Φ', latex: '\\varPhi', category: 'Greek', tooltip: 'varPhi', scale: 2 },
+  { label: 'Ψ', latex: '\\varPsi', category: 'Greek', tooltip: 'varPsi', scale: 2 },
+  { label: 'Ω', latex: '\\varOmega', category: 'Greek', tooltip: 'varOmega', scale: 2 },
+
+
   // --- FONTS ---
+
   { label: 'bb', latex: '\\mathbb{X}', category: 'Fonts', tooltip: 'Blackboard Bold', scale: 1.8 },
   { label: 'cal', latex: '\\mathcal{X}', category: 'Fonts', tooltip: 'Calligraphic', scale: 1.8 },
   { label: 'frak', latex: '\\mathfrak{X}', category: 'Fonts', tooltip: 'Fraktur', scale: 1.8 },
@@ -581,7 +631,9 @@ export const LATEX_SYMBOLS = [
   { label: 'mono', latex: '\\mathtt{x}', category: 'Fonts', tooltip: 'Monospace', scale: 1.8 },
   { label: 'text', latex: '\\text{abc}', category: 'Fonts', tooltip: 'Plain Text', scale: 1.4 },
 
+
   // --- MATRICES ---
+
   { label: 'matrix', latex: '\\begin{matrix} a & b \\\\ c & d \\end{matrix}', category: 'Matrices', tooltip: 'Matrix', scale: 1 },
   { label: 'pmatrix', latex: '\\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}', category: 'Matrices', tooltip: 'Parentheses Matrix', scale: 0.9 },
   { label: 'bmatrix', latex: '\\begin{bmatrix} a & b \\\\ c & d \\end{bmatrix}', category: 'Matrices', tooltip: 'Bracket Matrix', scale: 0.9 },
@@ -590,44 +642,86 @@ export const LATEX_SYMBOLS = [
   { label: 'Vmatrix', latex: '\\begin{Vmatrix} a & b \\\\ c & d \\end{Vmatrix}', category: 'Matrices', tooltip: 'Norm Matrix', scale: 0.9 },
   { label: 'small', latex: '\\begin{smallmatrix} a & b \\\\ c & d \\end{smallmatrix}', category: 'Matrices', tooltip: 'Small Matrix', scale: 1.4 },
 
+
   // --- ENVIRONMENTS ---
+
   { label: 'cases', latex: '\\begin{cases} a & b \\\\ c & d \\end{cases}', category: 'Environments', tooltip: 'Cases', scale: 0.75 },
   { label: 'rcases', latex: '\\begin{rcases} a & b \\\\ c & d \\end{rcases}', category: 'Environments', tooltip: 'Reverse Cases', scale: 0.75 },
   { label: 'aligned', latex: '\\begin{aligned} a &= b \\\\ c &= d \\end{aligned}', category: 'Environments', tooltip: 'Aligned Equations', scale: 0.9 },
   { label: 'array', latex: '\\begin{array}{cc} a & b \\\\ c & d \\end{array}', category: 'Environments', tooltip: 'Array', scale: 1 },
   { label: 'dashed', latex: '\\begin{array}{c:c} a & b \\\\ \\hline c & d \\end{array}', category: 'Environments', tooltip: 'Dashed Array', scale: 0.9 },
-  { label: 'subarray', latex: '\\begin{subarray}{l} a \\\\ b \\end{subarray}', category: 'Environments', tooltip: 'Subarray', scale: 1.6 },
-  { label: 'boxed', latex: '\\boxed{x}', category: 'Environments', tooltip: 'Boxed Expression', scale: 1.6 },
-  { label: 'cancel', latex: '\\cancel{x}', category: 'Environments', tooltip: 'Strikethrough', scale: 1.8 },
-  { label: 'bcancel', latex: '\\bcancel{x}', category: 'Environments', tooltip: 'Back Strikethrough', scale: 1.8 },
-  { label: 'xcancel', latex: '\\xcancel{x}', category: 'Environments', tooltip: 'Cross Strikethrough', scale: 1.8 },
-  { label: 'sout', latex: '\\text{\\sout{abc}}', category: 'Environments', tooltip: 'Strikeout Text', scale: 1.6 },
 
-  // --- ACCENTS & OVERSET ---
+
+  // --- ACCENTS ---
+
+  // --- ACCENTS: STANDARD ---
   { label: 'dot', latex: '\\dot{x}', category: 'Accents', tooltip: 'Dot', scale: 2 },
   { label: 'ddot', latex: '\\ddot{x}', category: 'Accents', tooltip: 'Double Dot', scale: 2 },
   { label: 'dddot', latex: '\\dddot{x}', category: 'Accents', tooltip: 'Triple Dot', scale: 2 },
   { label: 'ddddot', latex: '\\ddddot{x}', category: 'Accents', tooltip: 'Quad Dot', scale: 2 },
   { label: 'mathring', latex: '\\mathring{x}', category: 'Accents', tooltip: 'Ring Accent', scale: 2 },
-  { label: 'widecheck', latex: '\\widecheck{xyz}', category: 'Accents', tooltip: 'Wide Check', scale: 1.6 },
+  { label: 'acute', latex: '\\acute{x}', category: 'Accents', tooltip: 'Acute', scale: 2 },
+  { label: 'grave', latex: '\\grave{x}', category: 'Accents', tooltip: 'Grave', scale: 2 },
   { label: 'bar', latex: '\\bar{x}', category: 'Accents', tooltip: 'Bar', scale: 2 },
   { label: 'hat', latex: '\\hat{x}', category: 'Accents', tooltip: 'Hat', scale: 2 },
   { label: 'vec', latex: '\\vec{x}', category: 'Accents', tooltip: 'Vector', scale: 2 },
   { label: 'tilde', latex: '\\tilde{x}', category: 'Accents', tooltip: 'Tilde', scale: 2 },
+  { label: 'check', latex: '\\check{x}', category: 'Accents', tooltip: 'Check (Caron)', scale: 2 },
+  { label: 'breve', latex: '\\breve{x}', category: 'Accents', tooltip: 'Breve', scale: 2 },
+
+  // --- ACCENTS: WIDE & HORIZONTAL ---
+  { label: 'widecheck', latex: '\\widecheck{xyz}', category: 'Accents', tooltip: 'Wide Check', scale: 1.6 },
+  { label: 'widehat', latex: '\\widehat{xyz}', category: 'Accents', tooltip: 'Wide Hat', scale: 1.6 },
+  { label: 'widetilde', latex: '\\widetilde{xyz}', category: 'Accents', tooltip: 'Wide Tilde', scale: 1.6 },
   { label: 'overline', latex: '\\overline{xyz}', category: 'Accents', tooltip: 'Overline', scale: 1.4 },
   { label: 'underline', latex: '\\underline{xyz}', category: 'Accents', tooltip: 'Underline', scale: 1.4 },
+  { label: 'underbar', latex: '\\underbar{x}', category: 'Accents', tooltip: 'Underbar', scale: 1.4 },
+  { label: 'utilde', latex: '\\utilde{x}', category: 'Accents', tooltip: 'U-Tilde', scale: 1.4 },
+  { label: 'ovlineseg', latex: '\\overlinesegment{xyz}', category: 'Accents', tooltip: 'Overline Segment', scale: 1.4 },
+  { label: 'unlineseg', latex: '\\underlinesegment{xyz}', category: 'Accents', tooltip: 'Underline Segment', scale: 1.4 },
+
+  // --- ACCENTS: BRACES & BRACKETS ---
   { label: 'overbrace', latex: '\\overbrace{abc}', category: 'Accents', tooltip: 'Overbrace', scale: 1.4 },
   { label: 'underbrace', latex: '\\underbrace{abc}', category: 'Accents', tooltip: 'Underbrace', scale: 1.4 },
   { label: 'overgroup', latex: '\\overgroup{abc}', category: 'Accents', tooltip: 'Overgroup', scale: 1.4 },
   { label: 'undergroup', latex: '\\undergroup{abc}', category: 'Accents', tooltip: 'Undergroup', scale: 1.4 },
   { label: 'overbracket', latex: '\\overbracket{abc}', category: 'Accents', tooltip: 'Overbracket', scale: 1.4 },
   { label: 'underbracket', latex: '\\underbracket{abc}', category: 'Accents', tooltip: 'Underbracket', scale: 1.4 },
+
+  // --- ACCENTS: ARROWS ---
   { label: 'vec arrow', latex: '\\overrightarrow{abc}', category: 'Accents', tooltip: 'Over Right Arrow', scale: 1.4 },
+  { label: 'left arrow', latex: '\\overleftarrow{abc}', category: 'Accents', tooltip: 'Over Left Arrow', scale: 1.4 },
+  { label: 'lr arrow', latex: '\\overleftrightarrow{abc}', category: 'Accents', tooltip: 'Over Left-Right Arrow', scale: 1.4 },
+  { label: 'R-arrow', latex: '\\Overrightarrow{abc}', category: 'Accents', tooltip: 'Over Double Right Arrow', scale: 1.4 },
   { label: 'under arrow', latex: '\\underrightarrow{abc}', category: 'Accents', tooltip: 'Under Right Arrow', scale: 1.4 },
+  { label: 'u-left arrow', latex: '\\underleftarrow{abc}', category: 'Accents', tooltip: 'Under Left Arrow', scale: 1.4 },
+  { label: 'u-lr arrow', latex: '\\underleftrightarrow{abc}', category: 'Accents', tooltip: 'Under Left-Right Arrow', scale: 1.4 },
+  { label: 'l-harpoon', latex: '\\overleftharpoon{abc}', category: 'Accents', tooltip: 'Over Left Harpoon', scale: 1.4 },
+  { label: 'r-harpoon', latex: '\\overrightharpoon{abc}', category: 'Accents', tooltip: 'Over Right Harpoon', scale: 1.4 },
+
+  // --- ACCENTS: PRIMES ---
+  { label: 'prime', latex: "x'", category: 'Accents', tooltip: 'Prime', scale: 2 },
+  { label: 'dprime', latex: "x''", category: 'Accents', tooltip: 'Double Prime', scale: 2 },
+  { label: 'prime-var', latex: '\\prime', category: 'Accents', tooltip: 'Prime symbol', scale: 2 },
+
+  // --- ACCENTS: FUNCTIONAL ---
   { label: 'overset', latex: '\\overset{abc}{AB}', category: 'Accents', tooltip: 'Overset', scale: 1.4 },
   { label: 'underset', latex: '\\underset{abc}{AB}', category: 'Accents', tooltip: 'Underset', scale: 1.4 },
   { label: 'not', latex: '\\not =', category: 'Accents', tooltip: 'Negation Stroke', scale: 1.8 },
   { label: 'angl', latex: 'a_{\\angl n}', category: 'Accents', tooltip: 'Angle Annotation (angl)', scale: 1.4 },
   { label: 'angln', latex: 'a_{\\angln}', category: 'Accents', tooltip: 'Angle Annotation (angln)', scale: 1.4 },
-  { label: 'phase', latex: '\\phase{x}', category: 'Accents', tooltip: 'Phase', scale: 1.4 }
+  { label: 'phase', latex: '\\phase{x}', category: 'Accents', tooltip: 'Phase', scale: 1.4 },
+
+  // --- ACCENTS: TEXT MODE ---
+  { label: "\\' ", latex: "\\text{\\'{a}}", category: 'Accents', tooltip: 'Text Acute', scale: 1.4 },
+  { label: '\\` ', latex: "\\text{\\`{a}}", category: 'Accents', tooltip: 'Text Grave', scale: 1.4 },
+  { label: '\\^ ', latex: "\\text{\\^{a}}", category: 'Accents', tooltip: 'Text Circumflex', scale: 1.4 },
+  { label: '\\~ ', latex: "\\text{\\~{a}}", category: 'Accents', tooltip: 'Text Tilde', scale: 1.4 },
+  { label: '\\= ', latex: "\\text{\\={a}}", category: 'Accents', tooltip: 'Text Macron (Bar)', scale: 1.4 },
+  { label: '\\. ', latex: "\\text{\\.{a}}", category: 'Accents', tooltip: 'Text Dot', scale: 1.4 },
+  { label: '\\" ', latex: "\\text{\\\"{a}}", category: 'Accents', tooltip: 'Text Umlaut', scale: 1.4 },
+  { label: '\\u ', latex: "\\text{\\u{a}}", category: 'Accents', tooltip: 'Text Breve', scale: 1.4 },
+  { label: '\\v ', latex: "\\text{\\v{a}}", category: 'Accents', tooltip: 'Text Check (Caron)', scale: 1.4 },
+  { label: '\\H ', latex: "\\text{\\H{a}}", category: 'Accents', tooltip: 'Text Hungarian Umlaut', scale: 1.4 },
+  { label: '\\r ', latex: "\\text{\\r{a}}", category: 'Accents', tooltip: 'Text Ring', scale: 1.4 }
 ] as const satisfies LaTeXSymbol[];
