@@ -2,13 +2,13 @@ import React, { useState, useCallback, createContext, useContext } from 'react';
 import { createPortal } from 'react-dom';
 
 export interface Tooltip {
-  content: string | { label: string; tooltip: string };
+  content: string | { latex: string; tooltip: string };
   x: number;
   y: number;
 }
 
 interface TooltipContextType {
-  showTooltip: ( content: string | { label: string; tooltip: string }, x: number, y: number ) => void;
+  showTooltip: ( content: string | { latex: string; tooltip: string }, x: number, y: number ) => void;
   hideTooltip: () => void;
 }
 
@@ -17,7 +17,7 @@ const TooltipContext = createContext< TooltipContextType | undefined >( undefine
 export const TooltipProvider: React.FC< { children: React.ReactNode } > = ( { children } ) => {
   const [ tooltip, setTooltip ] = useState< Tooltip | null >( null );
 
-  const showTooltip = useCallback( ( content: string | { label: string; tooltip: string }, x: number, y: number ) => {
+  const showTooltip = useCallback( ( content: string | { latex: string; tooltip: string }, x: number, y: number ) => {
     setTooltip( { content, x, y } );
   }, [] );
 
@@ -56,9 +56,9 @@ export const TooltipProvider: React.FC< { children: React.ReactNode } > = ( { ch
             <span className="whitespace-nowrap font-medium">{ tooltip.content }</span>
           ) : (
             <>
-              <div className="font-bold whitespace-nowrap">{ tooltip.content.label }</div>
+              <div className="font-bold whitespace-nowrap">{ tooltip.content.tooltip }</div>
               <div className="w-full h-px bg-white/10" />
-              <code className="font-mono whitespace-nowrap text-sky-300">{ tooltip.content.tooltip }</code>
+              <code className="font-mono whitespace-nowrap text-sky-300">{ tooltip.content.latex }</code>
             </>
           ) }
         </div>,
