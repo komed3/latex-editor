@@ -768,6 +768,11 @@ export const LATEX_SYMBOLS = [
   { label: 'aligned', latex: '\\begin{aligned} a &= b \\\\ c &= d \\end{aligned}', category: 'Environments', tooltip: 'Aligned Equations', scale: 0.9 },
   { label: 'array', latex: '\\begin{array}{cc} a & b \\\\ c & d \\end{array}', category: 'Environments', tooltip: 'Array', scale: 1 },
   { label: 'dashed', latex: '\\begin{array}{c:c} a & b \\\\ \\hline c & d \\end{array}', category: 'Environments', tooltip: 'Dashed Array', scale: 0.9 },
+  { label: 'boxed', latex: '\\boxed{\\pi=\\frac c d}', category: 'Environments', tooltip: 'Boxed Expression', scale: 1 },
+  { label: 'cancel', latex: '\\cancel{x}', category: 'Environments', tooltip: 'Strikethrough', scale: 1.8 },
+  { label: 'bcancel', latex: '\\bcancel{x}', category: 'Environments', tooltip: 'Back Strikethrough', scale: 1.8 },
+  { label: 'xcancel', latex: '\\xcancel{x}', category: 'Environments', tooltip: 'Cross Strikethrough', scale: 1.8 },
+  { label: 'sout', latex: '\\text{\\sout{abc}}', category: 'Environments', tooltip: 'Strikeout Text', scale: 1.6 },
 
 
   // --- ACCENTS ---
@@ -799,12 +804,12 @@ export const LATEX_SYMBOLS = [
   { label: 'unlineseg', latex: '\\underlinesegment{xyz}', category: 'Accents', tooltip: 'Underline Segment', scale: 1.4 },
 
   // --- ACCENTS: BRACES & BRACKETS ---
-  { label: 'overbrace', latex: '\\overbrace{abc}', category: 'Accents', tooltip: 'Overbrace', scale: 1.4 },
-  { label: 'underbrace', latex: '\\underbrace{abc}', category: 'Accents', tooltip: 'Underbrace', scale: 1.4 },
+  { label: 'overbrace', latex: '\\overbrace{a+b+c}^{\\text{note}}', category: 'Accents', tooltip: 'Overbrace with Note', scale: 1.4 },
+  { label: 'underbrace', latex: '\\underbrace{a+b+c}_{\\text{note}}', category: 'Accents', tooltip: 'Underbrace with Note', scale: 1.4 },
+  { label: 'overbracket', latex: '\\overbracket{a+b+c}^{\\text{note}}', category: 'Accents', tooltip: 'Overbracket with Note', scale: 1.4 },
+  { label: 'underbracket', latex: '\\underbracket{a+b+c}_{\\text{note}}', category: 'Accents', tooltip: 'Underbracket with Note', scale: 1.4 },
   { label: 'overgroup', latex: '\\overgroup{abc}', category: 'Accents', tooltip: 'Overgroup', scale: 1.4 },
   { label: 'undergroup', latex: '\\undergroup{abc}', category: 'Accents', tooltip: 'Undergroup', scale: 1.4 },
-  { label: 'overbracket', latex: '\\overbracket{abc}', category: 'Accents', tooltip: 'Overbracket', scale: 1.4 },
-  { label: 'underbracket', latex: '\\underbracket{abc}', category: 'Accents', tooltip: 'Underbracket', scale: 1.4 },
 
   // --- ACCENTS: ARROWS ---
   { label: 'vec arrow', latex: '\\overrightarrow{abc}', category: 'Accents', tooltip: 'Over Right Arrow', scale: 1.4 },
@@ -827,8 +832,8 @@ export const LATEX_SYMBOLS = [
   { label: 'underset', latex: '\\underset{abc}{AB}', category: 'Accents', tooltip: 'Underset', scale: 1.4 },
   { label: 'not', latex: '\\not =', category: 'Accents', tooltip: 'Negation Stroke', scale: 1.8 },
   { label: 'angl', latex: 'a_{\\angl n}', category: 'Accents', tooltip: 'Angle Annotation (angl)', scale: 1.4 },
-  { label: 'angln', latex: 'a_{\\angln}', category: 'Accents', tooltip: 'Angle Annotation (angln)', scale: 1.4 },
-  { label: 'phase', latex: '\\phase{x}', category: 'Accents', tooltip: 'Phase', scale: 1.4 },
+  { label: 'angln', latex: 'a_\\angln', category: 'Accents', tooltip: 'Angle Annotation (angln)', scale: 1.4 },
+  { label: 'phase', latex: '\\phase{-78^\\circ}', category: 'Accents', tooltip: 'Phase with Degree', scale: 1.4 },
 
   // --- ACCENTS: TEXT MODE ---
   { label: "\\' ", latex: "\\text{\\'{a}}", category: 'Accents', tooltip: 'Text Acute', scale: 1.4 },
