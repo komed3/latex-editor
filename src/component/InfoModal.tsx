@@ -98,7 +98,7 @@ export const InfoModal: React.FC< InfoModalProps > = ( { isOpen, onClose } ) => 
                     <div className="border-l-2 border-[#2b579a] pl-4 py-1">
                       <strong className="block text-[#2b579a]">Context-Aware Symbol Ribbon</strong>
                       <p className="text-[#605e5c]">
-                        A categorized library of over 200 mathematical symbols and structures.
+                        A categorized library of over 700 mathematical symbols and structures.
                         Commands are inserted at the current cursor position, preserving selection state.
                       </p>
                     </div>

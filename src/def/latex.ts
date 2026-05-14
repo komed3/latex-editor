@@ -332,8 +332,6 @@ export const LATEX_SYMBOLS = [
   { label: '△', latex: '\\vartriangle', category: 'Relations', tooltip: 'Triangle Relation', scale: 1.8 },
   { label: '⊲', latex: '\\vartriangleleft', category: 'Relations', tooltip: 'Triangle Left Relation', scale: 1.8 },
   { label: '⊳', latex: '\\vartriangleright', category: 'Relations', tooltip: 'Triangle Right Relation', scale: 1.8 },
-  { label: '⊶', latex: '\\origof', category: 'Relations', tooltip: 'Original Of', scale: 1.8 },
-  { label: '⊷', latex: '\\imageof', category: 'Relations', tooltip: 'Image Of', scale: 1.8 },
 
   // --- RELATIONS: ASSIGNMENT & DEFINITION ---
   { label: ':', latex: '\\vcentcolon', category: 'Relations', tooltip: 'Vertical Centered Colon', scale: 2 },
