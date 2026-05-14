@@ -65,9 +65,17 @@ export const InfoModal: React.FC< InfoModalProps > = ( { isOpen, onClose } ) => 
                     This application is a specialized editor for LaTeX-based mathematical typesetting.
                     It enables the creation, preview, and export of formulas without requiring a local LaTeX distribution.
                   </p>
-                  <p className="text-sm text-[#323130] leading-relaxed">
-                    Formula processing is handled by the <strong>KaTeX</strong> engine directly in the browser.
+                  <p className="mb-4 text-sm text-[#323130] leading-relaxed">
+                    Formula processing is handled by the <strong>
+                      <a href="https://katex.org" target="_blank" className="underline">KaTeX</a>
+                    </strong> engine directly in the browser.
                     This architecture ensures immediate feedback and operates independently of server-side resources.
+                  </p>
+                  <p className="text-sm text-[#323130] leading-relaxed">
+                    Something is missing? You've found a bug? Please visit the <strong>
+                      <a href="https://github.com/komed3/latex-editor" target="_blank" className="underline">GitHub</a>
+                    </strong> repository to contribute.
+                    Open an issue or submit a pull request to help improve the application.
                   </p>
                 </section>
               </div>
