@@ -18,7 +18,8 @@ export const LATEX_CATEGORIES = [
   'Matrices',
   'Environments',
   'Accents',
-  'Styles'
+  'Styles',
+  'Chemistry'
 ];
 
 export const LATEX_SYMBOLS = [
@@ -870,5 +871,47 @@ export const LATEX_SYMBOLS = [
   { label: 'textstyle', latex: '\\textstyle \\sum', category: 'Styles', tooltip: 'Text Style', scale: 1.4 },
   { label: 'scriptstyle', latex: '\\scriptstyle x', category: 'Styles', tooltip: 'Script Style', scale: 2 },
   { label: 'scriptscriptstyle', latex: '\\scriptscriptstyle x', category: 'Styles', tooltip: 'Script-Script Style', scale: 2 },
-  { label: 'verb', latex: '\\verb!x^2!', category: 'Styles', tooltip: 'Verbatim', scale: 1.4 }
+  { label: 'verb', latex: '\\verb!x^2!', category: 'Styles', tooltip: 'Verbatim', scale: 1.4 },
+
+
+  // --- CHEMISTRY (mhchem) ---
+
+  // --- CHEMISTRY: CORE COMMANDS ---
+  { label: 'ce', latex: '\\ce{H2O}', category: 'Chemistry', tooltip: 'Chemical Equation/Formula', scale: 1.6 },
+  { label: 'pu', latex: '\\pu{123 kJ/mol}', category: 'Chemistry', tooltip: 'Physical Unit', scale: 1 },
+
+  // --- CHEMISTRY: REACTION ARROWS ---
+  { label: '→', latex: '\\ce{A -> B}', category: 'Chemistry', tooltip: 'Reaction Arrow', scale: 1 },
+  { label: '⇄', latex: '\\ce{A <-> B}', category: 'Chemistry', tooltip: 'Resonance Arrow', scale: 1 },
+  { label: '⇌', latex: '\\ce{A <=> B}', category: 'Chemistry', tooltip: 'Equilibrium Arrow', scale: 1 },
+  { label: '⇋', latex: '\\ce{A <=>> B}', category: 'Chemistry', tooltip: 'Equilibrium (Right favored)', scale: 1 },
+  { label: '⇌', latex: '\\ce{A <<=> B}', category: 'Chemistry', tooltip: 'Equilibrium (Left favored)', scale: 1 },
+  { label: '→[ ]', latex: '\\ce{A ->[above][below] B}', category: 'Chemistry', tooltip: 'Arrow with text', scale: 1 },
+
+  // --- CHEMISTRY: BONDS ---
+  { label: '-', latex: '\\ce{A - B}', category: 'Chemistry', tooltip: 'Single Bond', scale: 1.3 },
+  { label: '=', latex: '\\ce{A = B}', category: 'Chemistry', tooltip: 'Double Bond', scale: 1.3 },
+  { label: '#', latex: '\\ce{A # B}', category: 'Chemistry', tooltip: 'Triple Bond', scale: 1.3 },
+  { label: 'bond', latex: '\\ce{A \\bond{~} B}', category: 'Chemistry', tooltip: 'Special Bond (\\bond)', scale: 1.3 },
+  { label: '...', latex: '\\ce{A \\bond{...} B}', category: 'Chemistry', tooltip: 'Dotted Bond', scale: 1.3 },
+  { label: '->', latex: '\\ce{A \\bond{->} B}', category: 'Chemistry', tooltip: 'Dative Bond', scale: 1.3 },
+
+  // --- CHEMISTRY: STATES & NOTATION ---
+  { label: '(s)', latex: '\\ce{X(s)}', category: 'Chemistry', tooltip: 'Solid State', scale: 1.4 },
+  { label: '(l)', latex: '\\ce{X(l)}', category: 'Chemistry', tooltip: 'Liquid State', scale: 1.4 },
+  { label: '(g)', latex: '\\ce{X(g)}', category: 'Chemistry', tooltip: 'Gaseous State', scale: 1.4 },
+  { label: '(aq)', latex: '\\ce{X(aq)}', category: 'Chemistry', tooltip: 'Aqueous State', scale: 1.4 },
+  { label: 'precip', latex: '\\ce{X v}', category: 'Chemistry', tooltip: 'Precipitate (v)', scale: 1.4 },
+  { label: 'gas', latex: '\\ce{X ^}', category: 'Chemistry', tooltip: 'Gas (^)', scale: 1.4 },
+  { label: 'hydrate', latex: '\\ce{Na2CO3 * 10 H2O}', category: 'Chemistry', tooltip: 'Addition Compound (*)', scale: 1 },
+
+  // --- CHEMISTRY: ISOTOPES & PARTICLES ---
+  { label: 'Isotope', latex: '\\ce{^{227}_{90}Th}', category: 'Chemistry', tooltip: 'Nuclide/Isotope', scale: 1.2 },
+  { label: 'e-', latex: '\\ce{e-}', category: 'Chemistry', tooltip: 'Electron', scale: 1.6 },
+  { label: 'H+', latex: '\\ce{H+}', category: 'Chemistry', tooltip: 'Proton / Hydrogen Ion', scale: 1.6 },
+
+  // --- CHEMISTRY: OXIDATION & RADICALS ---
+  { label: 'Oxid.', latex: '\\ce{Fe^{II}}', category: 'Chemistry', tooltip: 'Oxidation State', scale: 1.6 },
+  { label: 'radical', latex: '\\ce{R^{.-}}', category: 'Chemistry', tooltip: 'Radical Dot', scale: 1.6 }
+
 ] as const satisfies LaTeXSymbol[];
