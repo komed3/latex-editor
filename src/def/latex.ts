@@ -17,10 +17,12 @@ export const LATEX_CATEGORIES = [
   'Fonts',
   'Matrices',
   'Environments',
-  'Accents'
+  'Accents',
+  'Styles'
 ];
 
 export const LATEX_SYMBOLS = [
+
   // --- FUNCTIONS ---
 
   // --- FUNCTIONS: ARITHMETIC & ROOTS ---
@@ -50,6 +52,8 @@ export const LATEX_SYMBOLS = [
   { label: 'Deriv', latex: '\\frac{d }{dx}', category: 'Functions', tooltip: 'Derivative', scale: 1.6 },
   { label: 'PDeriv', latex: '\\frac{\\partial }{\\partial x}', category: 'Functions', tooltip: 'Partial Derivative', scale: 1.6 },
   { label: 'Limit', latex: '\\lim_{x \\to \\infty}', category: 'Functions', tooltip: 'Limit', scale: 1 },
+  { label: 'limits', latex: '\\lim\\limits_{x \\to 0}', category: 'Functions', tooltip: 'Limits Above/Below', scale: 1.4 },
+  { label: 'nolimits', latex: '\\lim\\nolimits_{x \\to 0}', category: 'Functions', tooltip: 'Limits at Side', scale: 1.2 },
   { label: 'lim inf', latex: '\\liminf', category: 'Functions', tooltip: 'Limit Infimum', scale: 1.1 },
   { label: 'lim sup', latex: '\\limsup', category: 'Functions', tooltip: 'Limit Supremum', scale: 1.1 },
   { label: 'inj lim', latex: '\\injlim', category: 'Functions', tooltip: 'Injective Limit', scale: 1.1 },
@@ -462,6 +466,7 @@ export const LATEX_SYMBOLS = [
 
   // --- BRACKETS ---
 
+  // --- BRACKETS: STANDARD ---
   { label: '( )', latex: '\\left( x \\right)', category: 'Brackets', tooltip: 'Parentheses', scale: 1.6 },
   { label: '[ ]', latex: '\\left[ x \\right]', category: 'Brackets', tooltip: 'Square Brackets', scale: 1.6 },
   { label: '{ }', latex: '\\left\\{ x \\right\\}', category: 'Brackets', tooltip: 'Curly Braces', scale: 1.6 },
@@ -473,6 +478,8 @@ export const LATEX_SYMBOLS = [
   { label: 'lvert', latex: '\\lvert x \\rvert', category: 'Brackets', tooltip: 'Vertical Bar (lvert)', scale: 1.6 },
   { label: 'lVert', latex: '\\lVert x \\rVert', category: 'Brackets', tooltip: 'Double Bar (lVert)', scale: 1.6 },
   { label: '⟨ ⟩', latex: '\\left\\langle x \\right\\rangle', category: 'Brackets', tooltip: 'Angle Brackets', scale: 1.6 },
+
+  // --- BRACKETS: DIRECT ---
   { label: 'lang', latex: '\\lang x \\rang', category: 'Brackets', tooltip: 'Angle (lang)', scale: 1.6 },
   { label: '⦃ ⦄', latex: '\\lBrace x \\rBrace', category: 'Brackets', tooltip: 'White Braces', scale: 1.6 },
   { label: '⟦ ⟧', latex: '\\llbracket x \\rrbracket', category: 'Brackets', tooltip: 'Double Brackets', scale: 1.6 },
@@ -482,6 +489,16 @@ export const LATEX_SYMBOLS = [
   { label: '⟮ ⟯', latex: '\\lgroup x \\rgroup', category: 'Brackets', tooltip: 'Group Brackets', scale: 1.4 },
   { label: '┌ ┐', latex: '\\ulcorner x \\urcorner', category: 'Brackets', tooltip: 'Upper Corners', scale: 1.4 },
   { label: '└ ┘', latex: '\\llcorner x \\lrcorner', category: 'Brackets', tooltip: 'Lower Corners', scale: 1.4 },
+
+  // --- BRACKETS: BRA-KET ---
+  { label: '⟨ |', latex: '\\bra{\\phi}', category: 'Brackets', tooltip: 'Bra', scale: 1.6 },
+  { label: '| ⟩', latex: '\\ket{\\psi}', category: 'Brackets', tooltip: 'Ket', scale: 1.6 },
+  { label: '⟨ | ⟩', latex: '\\braket{\\phi|\\psi}', category: 'Brackets', tooltip: 'Braket', scale: 1.6 },
+  { label: '⟨ |', latex: '\\Bra{\\phi}', category: 'Brackets', tooltip: 'Large Bra', scale: 1.6 },
+  { label: '| ⟩', latex: '\\Ket{\\psi}', category: 'Brackets', tooltip: 'Large Ket', scale: 1.6 },
+  { label: '⟨ | | ⟩', latex: '\\Braket{ \\phi | H | \\psi }', category: 'Brackets', tooltip: 'Large Braket', scale: 1 },
+
+  // --- BRACKETS: OTHER ---
   { label: '/', latex: '/', category: 'Brackets', tooltip: 'Slash', scale: 1.6 },
   { label: '\\', latex: '\\backslash', category: 'Brackets', tooltip: 'Backslash', scale: 1.6 },
 
@@ -620,16 +637,34 @@ export const LATEX_SYMBOLS = [
 
   // --- FONTS ---
 
-  { label: 'bb', latex: '\\mathbb{X}', category: 'Fonts', tooltip: 'Blackboard Bold', scale: 1.8 },
-  { label: 'cal', latex: '\\mathcal{X}', category: 'Fonts', tooltip: 'Calligraphic', scale: 1.8 },
-  { label: 'frak', latex: '\\mathfrak{X}', category: 'Fonts', tooltip: 'Fraktur', scale: 1.8 },
-  { label: 'scr', latex: '\\mathscr{X}', category: 'Fonts', tooltip: 'Script', scale: 1.8 },
-  { label: 'bold', latex: '\\mathbf{x}', category: 'Fonts', tooltip: 'Bold', scale: 1.8 },
-  { label: 'italic', latex: '\\mathit{x}', category: 'Fonts', tooltip: 'Italic', scale: 1.8 },
-  { label: 'roman', latex: '\\mathrm{x}', category: 'Fonts', tooltip: 'Roman', scale: 1.8 },
-  { label: 'sans', latex: '\\mathsf{x}', category: 'Fonts', tooltip: 'Sans-Serif', scale: 1.8 },
-  { label: 'mono', latex: '\\mathtt{x}', category: 'Fonts', tooltip: 'Monospace', scale: 1.8 },
-  { label: 'text', latex: '\\text{abc}', category: 'Fonts', tooltip: 'Plain Text', scale: 1.4 },
+  // --- FONTS: MATH ---
+  { label: 'mathbb', latex: '\\mathbb{X}', category: 'Fonts', tooltip: 'Blackboard Bold', scale: 1.8 },
+  { label: 'Bbb', latex: '\\Bbb{X}', category: 'Fonts', tooltip: 'Blackboard Bold (Bbb)', scale: 1.8 },
+  { label: 'mathcal', latex: '\\mathcal{X}', category: 'Fonts', tooltip: 'Calligraphic', scale: 1.8 },
+  { label: 'cal', latex: '\\cal X', category: 'Fonts', tooltip: 'Calligraphic (Legacy)', scale: 1.8 },
+  { label: 'mathscr', latex: '\\mathscr{X}', category: 'Fonts', tooltip: 'Script', scale: 1.8 },
+  { label: 'mathfrak', latex: '\\mathfrak{X}', category: 'Fonts', tooltip: 'Fraktur', scale: 1.8 },
+  { label: 'frak', latex: '\\frak X', category: 'Fonts', tooltip: 'Fraktur (Legacy)', scale: 1.8 },
+  { label: 'mathbf', latex: '\\mathbf{x}', category: 'Fonts', tooltip: 'Math Bold', scale: 2 },
+  { label: 'bm', latex: '\\bm{x}', category: 'Fonts', tooltip: 'Bold Math (bm)', scale: 2 },
+  { label: 'boldsymbol', latex: '\\boldsymbol{x}', category: 'Fonts', tooltip: 'Bold Symbol', scale: 2 },
+  { label: 'mathit', latex: '\\mathit{x}', category: 'Fonts', tooltip: 'Math Italic', scale: 2 },
+  { label: 'mathnormal', latex: '\\mathnormal{x}', category: 'Fonts', tooltip: 'Math Normal', scale: 2 },
+  { label: 'mathsf', latex: '\\mathsf{x}', category: 'Fonts', tooltip: 'Math Sans-Serif', scale: 2 },
+  { label: 'mathtt', latex: '\\mathtt{x}', category: 'Fonts', tooltip: 'Math Monospace', scale: 2 },
+  { label: 'mathrm', latex: '\\mathrm{x}', category: 'Fonts', tooltip: 'Math Roman', scale: 2 },
+
+  // --- FONTS: TEXT ---
+  { label: 'text', latex: '\\text{abc}', category: 'Fonts', tooltip: 'Plain Text', scale: 1.6 },
+  { label: 'textbf', latex: '\\textbf{abc}', category: 'Fonts', tooltip: 'Text Bold', scale: 1.6 },
+  { label: 'textit', latex: '\\textit{abc}', category: 'Fonts', tooltip: 'Text Italic', scale: 1.6 },
+  { label: 'texttt', latex: '\\texttt{abc}', category: 'Fonts', tooltip: 'Text Monospace', scale: 1.6 },
+  { label: 'textsf', latex: '\\textsf{abc}', category: 'Fonts', tooltip: 'Text Sans-Serif', scale: 1.6 },
+  { label: 'textrm', latex: '\\textrm{abc}', category: 'Fonts', tooltip: 'Text Roman', scale: 1.6 },
+  { label: 'emph', latex: '\\emph{abc}', category: 'Fonts', tooltip: 'Emphasis', scale: 1.6 },
+  { label: 'textnormal', latex: '\\textnormal{abc}', category: 'Fonts', tooltip: 'Text Normal', scale: 1.6 },
+  { label: 'textup', latex: '\\textup{abc}', category: 'Fonts', tooltip: 'Text Upright', scale: 1.6 },
+  { label: 'textmd', latex: '\\textmd{abc}', category: 'Fonts', tooltip: 'Text Medium Weight', scale: 1.6 },
 
 
   // --- MATRICES ---
@@ -723,5 +758,33 @@ export const LATEX_SYMBOLS = [
   { label: '\\u ', latex: "\\text{\\u{a}}", category: 'Accents', tooltip: 'Text Breve', scale: 1.4 },
   { label: '\\v ', latex: "\\text{\\v{a}}", category: 'Accents', tooltip: 'Text Check (Caron)', scale: 1.4 },
   { label: '\\H ', latex: "\\text{\\H{a}}", category: 'Accents', tooltip: 'Text Hungarian Umlaut', scale: 1.4 },
-  { label: '\\r ', latex: "\\text{\\r{a}}", category: 'Accents', tooltip: 'Text Ring', scale: 1.4 }
+  { label: '\\r ', latex: "\\text{\\r{a}}", category: 'Accents', tooltip: 'Text Ring', scale: 1.4 },
+
+
+  // --- STYLES ---
+
+  // --- STYLES: COLORS ---
+  { label: 'color', latex: '\\color{blue} x', category: 'Styles', tooltip: 'Color Switch', scale: 2 },
+  { label: 'textcolor', latex: '\\textcolor{blue}{x}', category: 'Styles', tooltip: 'Colored Text', scale: 2 },
+  { label: 'colorbox', latex: '\\colorbox{aqua}{$x$}', category: 'Styles', tooltip: 'Color Box (Background)', scale: 1.6 },
+  { label: 'fcolorbox', latex: '\\fcolorbox{red}{aqua}{$x$}', category: 'Styles', tooltip: 'Framed Color Box', scale: 1.6 },
+
+  // --- STYLES: SIZES ---
+  { label: 'Huge', latex: '\\Huge x', category: 'Styles', tooltip: 'Huge Size', scale: 1.2 },
+  { label: 'huge', latex: '\\huge x', category: 'Styles', tooltip: 'huge Size', scale: 1.2 },
+  { label: 'LARGE', latex: '\\LARGE x', category: 'Styles', tooltip: 'LARGE Size', scale: 1.2 },
+  { label: 'Large', latex: '\\Large x', category: 'Styles', tooltip: 'Large Size', scale: 1.2 },
+  { label: 'large', latex: '\\large x', category: 'Styles', tooltip: 'large Size', scale: 1.2 },
+  { label: 'normalsize', latex: '\\normalsize x', category: 'Styles', tooltip: 'Normal Size', scale: 1.2 },
+  { label: 'small', latex: '\\small x', category: 'Styles', tooltip: 'small Size', scale: 1.2 },
+  { label: 'footnotesize', latex: '\\footnotesize x', category: 'Styles', tooltip: 'Footnote Size', scale: 1.2 },
+  { label: 'scriptsize', latex: '\\scriptsize x', category: 'Styles', tooltip: 'Script Size', scale: 1.2 },
+  { label: 'tiny', latex: '\\tiny x', category: 'Styles', tooltip: 'tiny Size', scale: 1.2 },
+
+  // --- STYLES: LAYOUT & MODE ---
+  { label: 'displaystyle', latex: '\\displaystyle \\sum', category: 'Styles', tooltip: 'Display Style', scale: 1 },
+  { label: 'textstyle', latex: '\\textstyle \\sum', category: 'Styles', tooltip: 'Text Style', scale: 1.4 },
+  { label: 'scriptstyle', latex: '\\scriptstyle x', category: 'Styles', tooltip: 'Script Style', scale: 2 },
+  { label: 'scriptscriptstyle', latex: '\\scriptscriptstyle x', category: 'Styles', tooltip: 'Script-Script Style', scale: 2 },
+  { label: 'verb', latex: '\\verb!x^2!', category: 'Styles', tooltip: 'Verbatim', scale: 1.4 }
 ] as const satisfies LaTeXSymbol[];
