@@ -316,10 +316,10 @@ export const InfoModal: React.FC< InfoModalProps > = ( { isOpen, onClose } ) => 
             LaTeX Formula Editor, Copyright &copy; 2026 by komed3.
             All rights reserved.
           </div>
-          <button onClick={ onClose } className="
+          <a href="https://ko-fi.com/komed3" target="_blank" className="
             px-8 py-1.5 font-bold text-[12px] text-white bg-[#2b579a] hover:bg-[#1a4a8a]
             border border-[#2b579a] transition-colors cursor-pointer
-          ">Close</button>
+          ">Donate</a>
         </div>
       </div>
     </div>
