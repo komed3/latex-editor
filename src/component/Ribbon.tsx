@@ -76,7 +76,8 @@ export const Ribbon: React.FC< RibbonProps > = ( {
 
     return searchQuery
       ? s.label.toLowerCase().includes( query ) ||
-        s.latex.toLowerCase().includes( query )
+        s.latex.toLowerCase().includes( query ) ||
+        s.tooltip.toLowerCase().includes( query )
       : s.category === activeTab;
   } );
 
