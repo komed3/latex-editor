@@ -98,9 +98,10 @@ export const Ribbon: React.FC< RibbonProps > = ( {
             <input type="text" placeholder="Search symbols …" value={ searchQuery } onChange={
               ( e ) => setSearchQuery( e.target.value )
             } className="
-              w-full h-full py-0 pl-9 pr-3 text-xs text-white focus:text-[#323130] bg-white/10
-              hover:bg-white focus:bg-white placeholder:text-white/50 hover:placeholder:text-[#323130]/40
-              rounded border border-transparent focus:border-white outline-none transition-all
+              w-full h-full py-0 pl-9 pr-3 text-xs text-white hover:text-[#323130]
+              focus:text-[#323130] bg-white/10 hover:bg-white focus:bg-white
+              placeholder:text-white/50 hover:placeholder:text-[#323130]/40 rounded
+              border border-transparent focus:border-white outline-none transition-all
             " />
           </div>
         </div>
