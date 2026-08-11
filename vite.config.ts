@@ -9,7 +9,7 @@ const build = execSync( 'git rev-parse --short HEAD' ).toString().trim();
 export default defineConfig( () => ( {
   base: '/latex-editor/',
   plugins: [ react(), tailwindcss() ],
-  resolve: { alias: { '@': resolve( __dirname, '.' ) } },
+  resolve: { alias: { '@': resolve( import.meta.dirname, '.' ) } },
   define: { 'process.env.build': JSON.stringify( build ) },
   build: { chunkSizeWarningLimit: 9999 }
 } ) );
